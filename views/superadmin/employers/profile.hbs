@@ -1,4 +1,4 @@
-<script src="{{cdn}}/js/init.js"></script>
+<script src="{{cdn 'public'}}/js/init.js"></script>
 <form method="POST" class="d-block ajaxForm" action="{{action}}">
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -83,7 +83,7 @@
                 <div class="wrapper-image-preview" style="margin-left: -6px; ">
                     <div class="box" style="width: 230px; height:270px;">
                         <div class="js--image-preview"
-                            style="height:220px; background-image: url({{#if employer}}{{image}}{{employer.upload.path}}{{else}}{{cdn}}/images/avatar.jpg{{/if}}); background-color: #F5F5F5;">
+                            style="height:220px; background-image: url({{#if employer}}{{image}}{{employer.upload.path}}{{else}}{{cdn 'public'}}/images/avatar.jpg{{/if}}); background-color: #F5F5F5;">
                         </div>
                         <div class="upload-options">
                             <label for="employer_image" class="btn" style="font-size:medium;"> <i

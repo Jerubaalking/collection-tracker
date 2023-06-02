@@ -13,11 +13,16 @@ var register = function (Handlebars) {
                 '...' :
                 i18n.__(str.trimStart(), i18n.getLocale());
         },
-        cdn: function () {
+        cdn: function (key) {
             if (process.env.NODE_ENV === 'development') {
                 return process.env.D_PUBLIC;
             } else {
-                return process.env.PUBLIC;
+                if (key) {
+                    return process.env.PUBLIC + '/storekeeperapp/public';
+                } else {
+
+                    return process.env.PUBLIC;
+                }
             }
         },
         image: function () {
