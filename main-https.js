@@ -17,7 +17,7 @@ const cors = require('cors');
 
 const models = require("./database/models/module_exporter");
 app.use(cors({
-    origin: ['https://www.saincrafttechnologies.com', 'https://collection-logger.builds.saincrafttechnologies.com', 'http://collection-logger.builds.saincrafttechnologies.com', 'https://captain.builds.saincrafttechnologies.com', process.env.D_PUBLIC],
+    origin: ['https://www.saincrafttechnologies.com', 'https://collection-logger.builds.saincrafttechnologies.com', 'http://collection-logger.builds.saincrafttechnologies.com', 'https://captain.builds.saincrafttechnologies.com', process.env.PUBLIC],
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
 }));
 passport.use(new LocalStrategy(
