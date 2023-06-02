@@ -303,5 +303,7 @@
 	"Charges Categories": "Charges Categories",
 	"ColRec System": "ColRec System",
 	"employee.addAddress is not a function": "employee.addAddress is not a function",
-	"Data truncated for column 'status' at row 1": "Data truncated for column 'status' at row 1"
+	"Data truncated for column 'status' at row 1": "Data truncated for column 'status' at row 1",
+	"English": "English",
+	"Swahili": "Swahili"
 }

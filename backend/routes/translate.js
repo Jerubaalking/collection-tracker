@@ -2,17 +2,17 @@ const express = require('express');
 const { isLoggedIn } = require('../../passport/passport');
 
 const i18n = require('../helpers/languages/i18n.config');
-const { languages, signups } = require('../../database/models/module_exporter');
+const models = require('../../database/models/module_exporter');
 const router = express.Router();
 router.get('/language/list', async (req, res) => {
-    let lang = JSON.parse(JSON.stringify(await languages.findAll()));
+    let lang = JSON.parse(JSON.stringify(await models.languages.findAll()));
     // req.session.passport['language'] = lang[0];
-    console.log(req.session);
+    console.log(lang);
     res.render('superadmin/language/dropdown', { layout: false, languages: lang, current: i18n.getLocale() })
 });
 router.get('/language/auth/list', async (req, res) => {
-    let lang = JSON.parse(JSON.stringify(await languages.findAll()));
-    console.log(req.cookies.locale);
+    let lang = JSON.parse(JSON.stringify(await models.languages.findAll()));
+    console.log(lang);
     // i18n.setLocale(req.cookies.locale);
     // req.session.passport['language'] = lang[0];
     // console.log(req.session);

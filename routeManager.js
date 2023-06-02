@@ -30,7 +30,7 @@ module.exports = async (app) => {
     // app.use('/items', require('./backend/routes/backend/items'));
     // app.use('/categories', require('./backend/routes/backend/item_categories'));
     // app.use('/products', require('./backend/routes/backend/products'));
-    // app.use('/translate', require('./backend/routes/translate'));
+    app.use('/translate', require('./backend/routes/translate'));
     // app.use('/countries', require('./backend/routes/countries'));
     // app.use('/stocks/in', require('./backend/routes/backend/stockIns'));
     // app.use('/departments', require('./backend/routes/backend/departments'));
