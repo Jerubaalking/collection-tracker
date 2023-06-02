@@ -13,6 +13,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const app = require('./applications/app');
 
 dotenv.config({ path: './config/config.env' });
+const cors = require('cors');
 
 const models = require("./database/models/module_exporter");
 app.use(cors({
