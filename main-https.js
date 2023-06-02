@@ -4,17 +4,17 @@ const express = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
 const http = require('http');
-const session = require('express-session');
+// const session = require('express-session');
 // const SessionStore = require('session-file-store')(session);
 const passport = require('passport');
 const flash = require('express-flash');
 const { passportInit, authenticateUser } = require('./passport/passport');
 const LocalStrategy = require('passport-local').Strategy;
+const app = require('./applications/app');
 
 dotenv.config({ path: './config/config.env' });
 const cors = require('cors');
 
-const app = require('./applications/app');
 const models = require("./database/models/module_exporter");
 app.use(cors({
     origin: ['https://www.saincrafttechnologies.com', 'https://storekeeper.builds.saincrafttechnologies.com', 'http://storekeeper.builds.saincrafttechnologies.com', 'https://captain.builds.saincrafttechnologies.com', process.env.D_PUBLIC],
