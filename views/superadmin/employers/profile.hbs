@@ -1,0 +1,128 @@
+<script src="{{cdn}}/js/init.js"></script>
+<form method="POST" class="d-block ajaxForm" action="{{action}}">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="name">
+                {{trs 'name'}}
+            </label>
+            <input type="text" placeholder="{{trs 'fullname'}}" value="{{employer.name}}" class="form-control" id="name"
+                name="name" required>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide'}} {{trs 'fullname'}}
+            </small>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="email">
+                {{trs 'email'}}
+            </label>
+            <input type="email" placeholder="xyz@example.com" value="{{employer.contacts.0.email}}" class="form-control"
+                id="email" name="email" required>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide'}} {{trs 'email'}}
+            </small>
+        </div>
+        <div class="col-md-6 ">
+
+            <div class="form-group col-md-12">
+                <label for="phone">
+                    {{trs 'phone'}}
+                </label>
+                <input type="text" class="form-control" value="{{employer.contacts.0.phone}}" placeholder="phone number"
+                    id="phone" name="phone" required>
+                <small id="" class="form-text text-muted">
+                    {{trs 'provide'}} {{trs 'phone'}} {{trs 'number'}}
+                </small>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="status">
+                    {{trs 'employer status'}}
+                </label>
+                <select class="form-control" name="status" id="status" required>
+                    <option value="" disabled selected>select hiring status</option>
+                    {{#ifEquals employer.status 'employing'}}
+                    <option value="employing" selected>employing</option>
+                    {{else}}
+                    <option value="employing">employing</option>
+                    {{/ifEquals}}
+                    {{#ifEquals employer.status 'reserved'}}
+                    <option value="reserved" selected>reserved</option>
+                    {{else}}
+                    <option value="reserved">reserved</option>
+                    {{/ifEquals}}
+                    {{#ifEquals employer.status 'scouting'}}
+                    <option value="scouting" selected>scouting</option>
+                    {{else}}
+                    <option value="scouting">scouting</option>
+                    {{/ifEquals}}
+                    {{#ifEquals employer.status 'unknown'}}
+                    <option value="unknown" selected>unknown</option>
+                    {{else}}
+                    <option value="unknown">unknown</option>
+                    {{/ifEquals}}
+                </select>
+                <small id="" class="form-text text-muted">
+                    {{trs 'provide'}} {{trs 'employer status'}}
+                </small>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="address">
+                    {{trs 'address'}}
+                </label>
+                <textarea type="text" class="form-control" placeholder="address.." id="address" name="address"
+                    required>{{employer.addresses.0.address}}</textarea>
+                <small id="" class="form-text text-muted">
+                    {{trs 'provide'}} {{trs 'employer'}} {{trs 'address'}}
+                </small>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <small id="" class="form-text text-muted">
+                {{trs 'provide'}} {{trs 'image'}} .png format
+            </small>
+            <div class="col-md-12 custom-file-upload">
+                <div class="wrapper-image-preview" style="margin-left: -6px; ">
+                    <div class="box" style="width: 230px; height:270px;">
+                        <div class="js--image-preview"
+                            style="height:220px; background-image: url({{#if employer}}{{image}}{{employer.upload.path}}{{else}}{{cdn}}/images/avatar.jpg{{/if}}); background-color: #F5F5F5;">
+                        </div>
+                        <div class="upload-options">
+                            <label for="employer_image" class="btn" style="font-size:medium;"> <i
+                                    class="mdi mdi-upload mr-1"></i> {{trs 'upload'}}
+                                {{trs 'logo/image'}}
+                            </label>
+                            <input id="employer_image" style="visibility:hidden;" type="file" class="image-upload"
+                                name="employer_image" accept="image/png" onchange="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="col-md-12">
+        <div class="form-group mt-2 col-md-6">
+            <button class="btn btn-block btn-info" type="submit">
+                {{#if employer}}
+                {{trs 'update'}} {{trs 'employer'}}
+                {{else}}
+                {{trs 'create'}} {{trs 'employer'}}
+                {{/if}}
+            </button>
+        </div>
+        <div class="form-group mt-2 col-md-6">
+            <button class="btn btn-block btn-secondary" type="reset" data-dismiss="modal">
+                cancel
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    $('#status').select2({
+        dropdownParent: $('#large-modal')
+    });
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllEmployers);
+    });
+</script>

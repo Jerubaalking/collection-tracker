@@ -1,0 +1,2532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Jquery-->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <!-- third party css -->
+    <link href="/public/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.css" rel="stylesheet" type="text/css" />
+    <link href="/public/fonts/fontkiko/css/kiko-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <link href="/public/js/barcode/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- third party css end -->
+    
+    <!-- App css -->
+    <link href="/public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CUSTOM CSS FILES -->
+    <link href="/public/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/content-placeholder.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addon.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/public/js/Chart.js"></script>
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+    <title>Elijah | </title>
+</head>
+<body data-layout="detached">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <!-- App css -->
+    <link href="</public/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!--Notify for ajax-->
+    <link rel="stylesheet" href="/public/css/toastr.min.css">
+
+</head>
+
+<body class="auth-fluid-pages pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="text-center text-lg-left mb-3">
+                        <a href="<?php //echo site_url(); ?>">
+                            <span><img src="<?php //echo $this->settings_model->get_logo_dark(); ?>" alt=""
+                                    height="35"></span>
+                        </a>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">Ingia</h4>
+                    <p class="text-muted mb-4">Ingiza barua pepe.</p>
+
+                    <!-- form -->
+                    <form action="/auth/signin" method="post" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailaddress">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required=""
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group">
+                            <a href="javascript: void(0);" class="text-muted float-right"
+                                onclick="forgotPass();"><small>Nimesahau nywila</small></a>
+                            <label for="password">Nywila</label>
+                            <input class="form-control" type="password" name="password" required="" id="password"
+                                placeholder=" enter your password">
+                            <span class="text-danger" id="error_message"></span>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                                Ingia </button>
+                            <a href="/auth/signup" class="text-muted float-right"><small>Jisajili?</small></a>
+                        </div>
+                    </form>
+
+                    <form action="<?php echo site_url('auth/forgotpassword'); ?>" method="post" id="forgotForm"
+                        style="display: none;">
+                        <div class="form-group">
+                            <a href="/auth/signin" class="text-muted float-right"><small>Back to
+                                    login</small></a>
+                            <label for="forgotEmail">Barua-pepe</label>
+                            <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                                placeholder=" enter your email">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button class="btn btn-primary btn-block" type="submit"><i
+                                    class="mdi mdi-login"></i>Tuma muundo kubadili nywila</button>
+                        </div>
+
+                    </form>
+                    <!-- end form-->
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="public/js/app.min.js"></script>
+
+    <!--Notify for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+    <script src="/public/js/app.min.js"></script>
+    
+    <!-- third party js -->
+    <script src="/public/js/vendor/jquery.dataTables.min.js"></script>
+    <script src="/public/js/vendor/dataTables.bootstrap4.js"></script>
+    <script src="/public/js/vendor/dataTables.responsive.min.js"></script>
+    <script src="/public/js/vendor/responsive.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/dataTables.buttons.min.js"></script>
+    <script src="/public/js/vendor/buttons.bootstrap4.min.js"></script>
+    <script src="/public/js/vendor/buttons.html5.min.js"></script>
+    <script src="/public/js/vendor/buttons.flash.min.js"></script>
+    <script src="/public/js/vendor/buttons.print.min.js"></script>
+    <script src="/public/js/vendor/dataTables.keyTable.min.js"></script>
+    <script src="/public/js/vendor/dataTables.select.min.js"></script>
+    <script src="/public/js/vendor/Chart.bundle.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/public/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/public/js/pages/demo.datatable-init.js"></script>
+    <script src="/public/js/pages/demo.form-wizard.js"></script>
+    <script src="/public/js/vendor/jquery-ui.min.js"></script>
+    <script src="/public/js/vendor/fullcalendar.min.js"></script>
+    <script src="/public/js/vendor/summernote-bs4.min.js"></script>
+    <script src="/public/js/pages/demo.summernote.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/select2.full.min.js"></script>
+    <!-- third party js ends -->
+    
+    <!--Notify for ajax-->
+    <script src="/public/js/toastr.min.js"></script>
+    
+    <script src="/public/js/jquery.validate.min.js"></script>
+    <script src="/public/js/additional-methods.min.js"></script>
+    <!-- demo app -->
+    <script src="/public/js/pages/demo.dashboard.js"></script>
+    <!-- end demo js-->
+    
+    <!--Custom JS-->
+    <script src="/public/js/init.js"></script>
+    <script src="/public/js/ajax_form_submission.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/content-placeholder.js"></script>
+    <script src="/public/js/addon.js"></script>
+    <script src="/public/js/barcode/barcode.js"></script>
+    <script src="/public/js/barcode/barcode.min.js"></script>
+    <script src="/public/js/jspdf.min.js"></script>
+    <script src="/public/js/jspdf.plugin.autotable.min.js"></script>    <!-- Toastr and alert notifications for PHP scripts -->
+    <script type="text/javascript">
+    function notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('heads_up'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","info");
+    }
+    
+    function success_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","success");
+    }
+    
+    function error_notify(message) {
+      $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", message ,"top-right","rgba(0,0,0,0.2)","error");
+    }
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('success'); ?>!", '<?php echo $this->session->flashdata("info_message");?>' ,"top-right","rgba(0,0,0,0.2)","info");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", '<?php echo $this->session->flashdata("error_message");?>' ,"top-right","rgba(0,0,0,0.2)","error");
+    </script>
+    
+    <script type="text/javascript">
+      //$.NotificationApp.send("<?php echo get_phrase('congratulations'); ?>!", '<?php echo $this->session->flashdata("flash_message");?>' ,"top-right","rgba(0,0,0,0.2)","success");
+    </script>
+    
+    
+    
+    <!-- SHOW TOASTR NOTIFICATION FOR AJAX-->
+    
+    <script type="text/javascript">
+    	//toastr.success('<?php echo $this->session->flashdata("ajax_flash_message");?>');
+    </script>
+    
+    
+    
+    <script type="text/javascript">
+    	//toastr.error('error message');
+    </script>
+<!-- bundle -->
+
+</body>
+
+</html><link rel="stylesheet" href="/public/css/app.min.css">
+<div class="row" style="margin-top: 150px;">
+    <div class="col-md-2">
+
+    </div>
+    <div class="table-responsive-sm col-md-8">
+        <table id="basic-datatable" class="table table-bordered nowrap" width="100%">
+            <thead class="">
+                <tr>
+                    <th>Project</th>
+                    <th>Estimate</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Supervisor</th>
+                    <th>Treasurer</th>
+                    <th>Approval</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Music Instrument</td>
+                    <td>2000000</td>
+                    <td>2022-12-01T12:08:27.000Z</td>
+                    <td>2022-12-31T00:00:00.000Z</td>
+                    <td>Gideon Sainyeye</td>
+                    <td>Kasim Majaliwa</td>
+                    <td>proposed</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+
+</div><link rel="stylesheet" href="/public/css/app.min.css">
+<div class="row" style="margin-top: 150px;">
+    <div class="col-md-2">
+
+    </div>
+    <div class="table-responsive-sm col-md-8">
+        <table id="basic-datatable" class="table table-bordered nowrap" width="100%">
+            <thead class="">
+                <tr>
+                    <th>Project</th>
+                    <th>Estimate</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Supervisor</th>
+                    <th>Treasurer</th>
+                    <th>Approval</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Music Instrument</td>
+                    <td>2000000</td>
+                    <td>2022-12-01T12:08:27.000Z</td>
+                    <td>2022-12-31T00:00:00.000Z</td>
+                    <td>Gideon Sainyeye</td>
+                    <td>Kasim Majaliwa</td>
+                    <td>proposed</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+
+</div><link rel="stylesheet" href="/public/css/app.min.css">
+<div class="row" style="margin-top: 150px;">
+    <div class="col-md-2">
+
+    </div>
+    <div class="table-responsive-sm col-md-8">
+        <table id="basic-datatable" class="table table-bordered nowrap" width="100%">
+            <thead class="">
+                <tr>
+                    <th>Project</th>
+                    <th>Estimate</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Supervisor</th>
+                    <th>Treasurer</th>
+                    <th>Approval</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Music Instrument</td>
+                    <td>2000000</td>
+                    <td>2022-12-01T12:08:27.000Z</td>
+                    <td>2022-12-31T00:00:00.000Z</td>
+                    <td>Gideon Sainyeye</td>
+                    <td>Kasim Majaliwa</td>
+                    <td>proposed</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+
+</div>

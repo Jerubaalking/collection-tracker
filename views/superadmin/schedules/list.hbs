@@ -1,0 +1,60 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr style="background-color: #313a46; color: #ababab;">
+            <th>Schedule</th>
+            <th>Timing-Info</th>
+            <th>option</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each schedules}}
+        <tr>
+            <td>
+                <i class="mdi mdi-clock"></i> {{name}}
+            </td>
+            <td>
+                <h6>start: {{setHomeDate schedule_start_date}}</h6>
+                <h6>repeat after: {{repeat_after}} {{repeat_type}}</h6>
+                <h6>repeat laps: {{repeat_times}} times</h6>
+            </td>
+            <td>
+                <div class="dropdown text-center">
+                    <button type="button"
+                        class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+                        data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="largeModal('/schedules/edit/{{id}}', 'update schedule', 'mdi mdi-pencil text-info')">
+                            edit
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="mediumModal('/schedules/upload/{{id}}', '{{name}} image', 'mdi mdi-account text-info')">
+                            upload
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="largeModal('/schedules/password/{{id}}', '{{name}} password', 'mdi mdi-pencil text-info')">
+                            password
+                        </a><!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="mediumModal('/schedules/address/{{id}}', '{{name}} addresses', 'mdi mdi-pencil text-info')">
+                            address
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="confirmModal('/schedules/delete/{{id}}', showAllUsers )">
+                            delete
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{!--
+<?php else: ?>
+<?php include APPPATH.'views/backend/empty.php'; ?>
+<?php endif; ?> --}}

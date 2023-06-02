@@ -1,0 +1,59 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr style="background-color: #313a46; color: #ababab;">
+            <th>name</th>
+            <th>amount</th>
+            <th>descriptions</th>
+            <th>option</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each charges}}
+        <tr>
+            <td>
+                <i class="mdi mdi-clock"></i> {{name}}
+            </td>
+            <td>
+                {{money amount}}
+            </td>
+            <td>
+                <div class="dropdown text-center">
+                    <button type="button"
+                        class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+                        data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="largeModal('/charges/edit/{{id}}', 'update charge', 'mdi mdi-pencil text-info')">
+                            edit
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="mediumModal('/charges/upload/{{id}}', '{{name}} image', 'mdi mdi-account text-info')">
+                            upload
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="largeModal('/charges/password/{{id}}', '{{name}} password', 'mdi mdi-pencil text-info')">
+                            password
+                        </a><!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="mediumModal('/charges/address/{{id}}', '{{name}} addresses', 'mdi mdi-pencil text-info')">
+                            address
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="confirmModal('/charges/delete/{{id}}', showAllUsers )">
+                            delete
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{!--
+<?php else: ?>
+<?php include APPPATH.'views/backend/empty.php'; ?>
+<?php endif; ?> --}}

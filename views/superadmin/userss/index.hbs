@@ -1,0 +1,64 @@
+<!-- start page title -->
+<div class="row ">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="page-title">
+                    <i class="mdi mdi-database title_icon"></i>Users
+                </h4>
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>
+<!-- end page title -->
+<div class="row ">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <div class ="user_content">
+                    
+                </div> <!-- end table-responsive-->
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>
+
+
+<script>
+$(document).ready(function(){
+    //alert('books');
+    showAllUsers();
+});
+var showAllUsers = function () {
+    var url = '/users/list';
+    $.ajax({
+        type : 'GET',
+        url: url,
+        success : function(response) {
+            //alert(response[0]['author']);
+            $('.user_content').html(response);
+            initDataTable('basic-datatable');
+        }
+    });
+}
+</script>
+<script>
+    function toggleRoles(role_id){
+        var user_id = $('#user').val();
+        console.log(user_id);
+        $.ajax({
+            type: 'POST',
+            url: 'users/roles/'+user_id,
+            data: {role_id : role_id},
+            success: function(response){
+                //$('.permission_content').html(response);
+                if(response.status){
+                toastr.success(response.notification);
+                }else{
+
+                toastr.error(response.notification);
+                }
+            }
+        });
+    }
+</script>

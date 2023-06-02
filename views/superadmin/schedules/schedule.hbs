@@ -1,0 +1,119 @@
+<script src="{{cdn}}/js/select2.min.js"></script>
+<form method="POST" class="d-block ajaxForm" action="{{action}}" enctype="application/x-www-form-urlencoded">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="name">
+                {{trs 'name'}}
+            </label>
+            <input type="text" placeholder="{{trs 'name'}}" value="{{schedule.name}}" class="form-control" id="name"
+                name="name" required>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide schedule name'}}
+            </small>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="repeat_after">
+                {{trs 'schedule repeat after'}}
+            </label>
+            <input type="number" max="17280" min="1" aria-valuenow="1" placeholder="" value="{{schedule.repeat_after}}"
+                class="form-control" id="repeat_after" name="repeat_after" required>
+            <small id="" class="form-text text-muted">
+                {{trs 'schedule will repeate every after...'}}
+            </small>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="repeat_type">
+                {{trs 'schedule range'}}
+            </label>
+            <select class="form-control" name="repeat_type" id="repeat_type" required>
+                <option value="" disabled selected>select repeat type</option>
+                {{#ifEquals schedule.repeat_type 'minutes'}}
+                <option value="minutes" selected>minutes</option>
+                {{else}}
+                <option value="minutes">minutes</option>
+                {{/ifEquals}}
+                {{#ifEquals schedule.repeat_type 'hours'}}
+                <option value="hours" selected>hours</option>
+                {{else}}
+                <option value="hours">hours</option>
+                {{/ifEquals}}
+                {{#ifEquals schedule.repeat_type 'days'}}
+                <option value="days" selected>days</option>
+                {{else}}
+                <option value="days">days</option>
+                {{/ifEquals}}
+                {{#ifEquals schedule.repeat_type 'months'}}
+                <option value="months" selected>months</option>
+                {{else}}
+                <option value="months">months</option>
+                {{/ifEquals}}
+                {{#ifEquals schedule.repeat_type 'years'}}
+                <option value="years" selected>years</option>
+                {{else}}
+                <option value="years">years</option>
+                {{/ifEquals}}
+            </select>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide'}} {{trs 'schedule repeat type'}}
+            </small>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="repeat_times">
+                {{trs 'schedule times'}}
+            </label>
+            <input type="number" placeholder="" value="{{schedule.repeat_times}}" class="form-control" id="repeat_times"
+                name="repeat_times" required>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide'}} {{trs 'how many times a schedule should repeat'}}
+            </small>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="schedule_start_date">
+                {{trs 'schedule start date'}}
+            </label>
+            <input type="date" placeholder="" {{#if schedule}} value="{{setDate schedule.schedule_start_date}}" {{else}}
+                value="" {{/if}} class="form-control" id="schedule_start_date" name="schedule_start_date" required>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide'}} {{trs 'date when a schedule should starts'}}
+            </small>
+        </div>
+        <div class="col-md-2">
+            <label for="skip_holidays">
+                {{trs 'skip holidays'}}
+            </label>
+            <input type="checkbox" class="mb-1" value="true" name="skip_holidays" id="skip_holidays" data-switch="info" 
+            {{#if schedule}}
+            {{#ifEquals schedule.skip_holidays 1 }} checked {{else}} {{/ifEquals}}
+            {{else}}checked{{/if}}>
+            <label for="skip_holidays" data-on-label="yes" data-off-label="no"></label>
+        </div>
+        <div class="col-md-12 row">
+            <div class="form-group mt-2 col-md-6">
+                <button class="btn btn-block btn-info" type="submit">
+                    {{#if schedule}}
+                    {{trs 'update'}} {{trs 'schedule'}}
+                    {{else}}
+                    {{trs 'create'}} {{trs 'schedule'}}
+                    {{/if}}
+                </button>
+            </div>
+            <div class="form-group mt-2 col-md-6">
+                <button class="btn btn-block btn-secondary" type="reset" data-dismiss="modal">
+                    cancel
+                </button>
+            </div>
+        </div>
+
+    </div>
+</form>
+<script>
+    $('#repeat_type').select2({
+        dropdownParent: $('#large-modal')
+    });
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllSchedules);
+    });
+</script>

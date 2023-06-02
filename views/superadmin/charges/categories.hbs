@@ -1,0 +1,58 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr style="background-color: #313a46; color: #ababab;">
+            <th>info</th>
+            <th>descriptions</th>
+            <th>option</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each charge_categories}}
+        <tr>
+            <td>
+                <h4><i class="mdi mdi-order-bool-descending-variant text-info"></i><strong>
+                        {{category.name}}</strong></h4>
+                <div class="row">
+                    <div class="col-md-2">
+                        <i class="mdi mdi-wallet text-info"></i><strong> {{charge.name}}</strong><br>
+                        {{#ifEquals monthly '1'}}
+
+                        <i class="mdi mdi-clock text-primary"></i> <small>Monthly</small>
+
+                        {{/ifEquals}}
+                        {{#ifEquals daily '1'}}
+                        <i class="mdi mdi-clock text-info"></i> Daily
+                        {{/ifEquals}}
+                        {{#ifEquals weekly '1'}}
+                        <i class="mdi mdi-clock text-success" text-warning></i> Weekly
+                        {{/ifEquals}}
+                    </div>
+
+                </div>
+
+            </td>
+            <td>{{category.description}}
+            </td>
+            <td>
+                <div class="dropdown text-center">
+                    <button type="button"
+                        class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+                        data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="largeModal('/charges/categories/edit/{{id}}', 'update charge', 'mdi mdi-pencil text-info')">
+                            edit
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="confirmModal('/charges/categories/delete/{{id}}', showAllUsers )">
+                            delete
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

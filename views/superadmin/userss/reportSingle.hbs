@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="http://localhost:5000/public/css/app.min.css">
+<style>
+    table {
+        font-size: 12px;
+    }
+</style>
+<div style="display: inline-block;">
+    <p id="top-left-conner"><span style="float: inline-start;">{{datetime}}</span> <span
+            style="float: inline-end;">{{time}}</span></p>
+</div>
+<div class="row" style="margin-top: 50px; ">
+    <div class="col-md-2">
+
+    </div>
+    <div class="table-responsive-sm col-md-8">
+        <h5 style="text-align: justify;">{{projects.church.name}} projects</h5>
+        <div class="col-md-3">
+
+        </div>
+        <div class="table-responsive-sm col-md-8">
+            <table id="basic-datatable" class="table table-bordered nowrap" width="100%">
+                <thead class="">
+                    <tr>
+                        <th>Project</th>
+                        <th>Estimate</th>
+                        <th>Start date</th>
+                        <th>End date</th>
+                        <th>Supervisor</th>
+                        <th>Treasurer</th>
+                        <th>Approval</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>{{projects.name}}</td>
+                        <td>{{projects.estimate}}</td>
+                        <td>{{setDate projects.start_date}}</td>
+                        <td>{{setDate projects.end_date}}</td>
+                        <td>{{projects.supervisor.firstname}} {{projects.supervisor.lastname}}</td>
+                        <td>{{projects.treasurer.firstname}} {{projects.treasurer.lastname}}</td>
+                        <td>{{projects.approval}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-3">
+
+        </div>
+
+    </div>

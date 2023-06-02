@@ -1,0 +1,73 @@
+<div class="row" style="min-width: 300px;">
+    <div class="col-md-12">
+        <h5 class="text-center">{{#each teacher_permissions}}
+            <table class="table table-hover table-centered table-bordered mb-0"
+                style="margin-bottom: 50px !important; background-color: #FAFAFA;">
+                <tbody>
+                    <tr>
+                        <td>
+                            class
+                        </td>
+                        <td>{{class.name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            section
+                        </td>
+                        <td>
+                            {{section.name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Marks
+                        </td>
+                        <td>
+                            <i class="mdi mdi-circle text-{{#ifEquals 1 marks}}success{{else}}danger{{/ifEquals}}"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>assigments</td>
+                        <td>
+                            <i
+                                class="mdi mdi-circle text-{{#ifEquals 1 assignment}}success{{else}}danger{{/ifEquals}}"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            attendance
+                        </td>
+                        <td>
+                            <i <i
+                                class="mdi mdi-circle text-{{#ifEquals 1 attendance}}success{{else}}danger{{/ifEquals}}"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>online exam</td>
+                        <td>
+                            <i
+                                class="mdi mdi-circle text-{{#ifEquals 1 online_exams}}success{{else}}danger{{/ifEquals}}"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            {{/each}}
+            {{#if teacher_permissions}}
+
+            {{else}}<p class="text-center">
+                no permission assigned yet
+            </p>
+            {{/if}}
+            <a href="#" onclick="beforeLoadPage('/permissions','permissions')" class="btn btn-info btn-block">
+                update permissions
+            </a>
+    </div>
+</div>
+<script>
+    function beforeLoadPage(url, name) {
+
+        loadPage(url, name);
+        $('#right-modal').modal('hide');
+    }
+</script>

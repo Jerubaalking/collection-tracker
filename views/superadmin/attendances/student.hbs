@@ -1,0 +1,92 @@
+<div class="row" style="margin-bottom: 10px; width: 100%;">
+    <div class="col-6"><a href="javascript:" class="btn btn-sm btn-secondary" onclick="present_all()">present all</a>
+    </div>
+    <div class="col-6"><a href="javascript:" class="btn btn-sm btn-secondary float-right" onclick="absent_all()">absent
+            all</a></div>
+</div>
+
+<div class="table-responsive-sm row col-md-12" style="padding-right: 0px;">
+    <table class="table table-bordered table-centered mb-0">
+        <thead>
+            <tr>
+                <th>
+                    name
+                </th>
+                <th>
+                    status
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each enrols}}
+            <tr>
+                <td>
+                    {{student.user.name}}
+                </td>
+                <td>
+
+                    <input type="hidden" name="studentId[]" value="{{studentId}}">
+
+                    {{#if attendances}}
+                    {{#each attendances}}
+                    {{#ifEquals status 1}}
+                    <div class="custom-control custom-radio">
+                        <input type="hidden" name="attendanceId[]" value="{{id}}">
+                        <div class="checkbox checkbox-primary">
+                            <input type="radio" id="present-{{studentId}}" name="status-{{studentId}}" value="1"
+                                class="styled present" checked required>
+                            <label for="present-{{studentId}}">present</label>
+                        </div>
+                        <div class="checkbox checkbox-warning">
+                            <input type="radio" id="absent-{{studentId}}" name="status-{{studentId}}" value="0"
+                                class="styled absent  text-warning" required>
+                            <label for="absent-{{studentId}}">absent</label>
+                        </div>
+                    </div>
+                    {{else}}
+                    <div class="custom-control custom-radio">
+                        <input type="hidden" name="attendanceId[]" value="{{id}}">
+                        <div class="checkbox checkbox-primary">
+                            <input type="radio" id="present-{{studentId}}" name="status-{{studentId}}" value="1"
+                                class="styled present" required>
+                            <label for="present-{{studentId}}">present</label>
+                        </div>
+                        <div class="checkbox checkbox-warning">
+                            <input type="radio" id="absent-{{studentId}}" name="status-{{studentId}}" value="0"
+                                class="styled absent  text-warning" checked required>
+                            <label for="absent-{{studentId}}">absent</label>
+                        </div>
+                    </div>
+                    {{/ifEquals}}
+                    {{/each}}
+                    {{else}}
+                    <div class="custom-control custom-radio">
+                        <input type="hidden" name="attendanceId[]" value="{{id}}">
+                        <div class="checkbox checkbox-primary">
+                            <input type="radio" id="present-{{studentId}}" name="status-{{studentId}}" value="1"
+                                class="styled present" required>
+                            <label for="present-{{studentId}}">present</label>
+                        </div>
+                        <div class="checkbox checkbox-warning">
+                            <input type="radio" id="absent-{{studentId}}" name="status-{{studentId}}" value="0"
+                                class="styled absent  text-warning" required>
+                            <label for="absent-{{studentId}}">absent</label>
+                        </div>
+                    </div>
+                    {{/if}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    function present_all() {
+        $(".present").prop('checked', true);
+    }
+
+    function absent_all() {
+        $(".absent").prop('checked', true);
+    }
+</script>

@@ -1,0 +1,94 @@
+<form method="POST" class="d-block ajaxForm" action="/syllabus/create" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="title">title</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="classId_on_create">class</label>
+            <select class="form-control select2" data-toggle="select2" id="classId_on_create" name="classId"
+                onchange="classWiseSectionOnCreate(this.value)" required>
+                <option value="">select class</option>
+                {{#each classes}}
+                <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="sectionId_on_create">
+                section
+            </label>
+            <select class="form-control select2" data-toggle="select2" id="sectionId_on_create" name="sectionId"
+                required>
+                <option value="">
+                    select a section
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="subjectId_on_create">
+                subject
+            </label>
+            <select class="form-control select2" data-toggle="select2" id="subjectId_on_create" name="subjectId"
+                requied>
+                <option>
+                    select subject
+                </option>
+            </select>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="syllabus_file">
+                upload syllabus
+            </label>
+            <div class="custom-file-upload">
+                <input type="file" class="form-control" id="syllabus_file" name="syllabus_file" required>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-12 mt-2">
+        <button class="btn btn-block btn-primary" type="submit">
+            create syllabus
+        </button>
+    </div>
+    </div>
+</form>
+
+<script>
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllSyllabuses);
+    });
+
+    $('document').ready(function () {
+        initSelect2(['#classId_on_create',
+            '#sectionId_on_create',
+            '#subjectId_on_create']);
+    });
+
+    function classWiseSectionOnCreate(classId) {
+        $.ajax({
+            url: "/sections/list/class/" + classId,
+            success: function (response) {
+                $('#sectionId_on_create').html(response);
+                classWiseSubjectOnCreate(classId);
+            }
+        });
+    }
+
+    function classWiseSubjectOnCreate(classId) {
+        $.ajax({
+            url: "/subjects/list/class/" + classId,
+            success: function (response) {
+                $('#subjectId_on_create').html(response);
+            }
+        });
+    }
+</script>
+
+
+<script type="text/javascript">
+    initCustomFileUploader();
+</script>

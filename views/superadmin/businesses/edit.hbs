@@ -1,0 +1,120 @@
+<script src="{{cdn}}/js/init.js"></script>
+<form method="POST" class="d-block ajaxForm" action="/businesses/edit/{{business.id}}">
+    <div class="form-row">
+        {{!-- <input type="hidden" name="school_id" value=""> --}}
+        <div class="form-group col-md-12">
+            <label for="name">Business name</label>
+            <input type="text" class="form-control" value="{{business.name}}" id="name" name="name" required>
+            <small id="name_help" class="form-text text-muted">provide name</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="registration">Registration</label>
+            <input type="text" class="form-control" value="{{business.registration}}" id="registration"
+                name="registration" required>
+            <small id="registration_help" class="form-text text-muted">provide registration</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="tin">Business TIN</label>
+            <input type="text" class="form-control" value="{{business.tin}}" id="tin" name="tin" required>
+            <small id="tin_help" class="form-text text-muted">provide tin</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="license">Business License</label>
+            <input type="text" class="form-control" value="{{business.license}}" id="license" name="license" required>
+            <small id="license_help" class="form-text text-muted">provide license</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="about">Business purpose</label>
+            <textarea class="form-control" id="about" name="about" placeholder="purpose...."
+                required>{{business.about}}</textarea>
+            <small id="about_help" class="form-text text-muted">provide about</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="phone">Business Phone</label>
+            <textarea class="form-control" id="phone" name="phone" placeholder="phone...."
+                required>{{business.phone}}</textarea>
+            <small id="phone_help" class="form-text text-muted">provide phone</small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="address">Business address</label>
+            <textarea class="form-control" id="address" name="address" placeholder="address...."
+                required>{{business.address}}</textarea>
+            <small id="address_help" class="form-text text-muted">provide address</small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="vision">Business vision</label>
+            <textarea class="form-control" id="vision" name="vision" placeholder="vision...."
+                required>{{business.vision}}</textarea>
+            <small id="vision_help" class="form-text text-muted">provide vision</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="mission_statement">Business mission</label>
+            <textarea class="form-control" id="mission_statement" name="mission_statement"
+                placeholder="mission statement...." required>{{business.mission_statement}}</textarea>
+            <small id="mission_statement_help" class="form-text text-muted">provide mission statement</small>
+        </div>
+
+        <div class="col-md-12 row">
+            <div class="form-group row mb-2 col-md-6">
+                <label class="col-md-3 col-form-label" for="example-fileinput">
+                    business logo
+                </label>
+                <div class="col-md-9 custom-file-upload">
+                    <div class="wrapper-image-preview" style="margin-left: -6px;">
+                        <div class="box" style="width: 250px;">
+                            <div class="js--image-preview"
+                                style="background-image: url('{{cdn}}{{business.logo}}'); background-color: #F5F5F5;">
+                            </div>
+                            <div class="upload-options">
+                                <label for="business_logo" class="btn"> <i class="mdi mdi-camera"></i>
+                                    upload logo
+                                </label>
+                                <input id="business_logo" style="visibility:hidden;" type="file" class="image-upload"
+                                    name="business_logo" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 row">
+            <div class="form-group row mb-2 col-md-6">
+                <label class="col-md-3 col-form-label" for="example-fileinput">
+                    business stamp
+                </label>
+                <div class="col-md-9 custom-file-upload">
+                    <div class="wrapper-image-preview" style="margin-left: -6px;">
+                        <div class="box" style="width: 250px;">
+                            <div class="js--image-preview"
+                                style="background-image: url('{{cdn}}{{business.stamp}}'); background-color: #F5F5F5;">
+                            </div>
+                            <div class="upload-options">
+                                <label for="business_stamp" class="btn"> <i class="mdi mdi-camera"></i>
+                                    upload stamp
+                                </label>
+                                <input id="business_stamp" style="visibility:hidden;" type="file" class="image-upload"
+                                    name="business_stamp" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">
+                update business
+            </button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllBusinesses);
+    });
+</script>

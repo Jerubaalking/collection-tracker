@@ -1,0 +1,145 @@
+<div class="row">
+
+    <div class="col-md-12 col-sm-12 row">
+        <div class="col-md-12 col-sm-12 row">
+            <div class="col-md-4 col-sm-6">
+                {{!-- <img {{#if ../employees}}src="{{upload.path}}" alt="" srcset="{{upload.path}}" {{else}}
+                    src="{{cdn}}/images/avatar.jpg" alt="" srcset="{{cdn}}/images/avatar.jpg" {{/if}}
+                    style="height:120px; margin-left:-20px;"> --}}
+                <div class="rounded-circle rounded-bottom js--image-preview mr-2 mt-0" {{#if employee}}style="background-image: url({{image}}{{employee.contacts.0.users.0.upload.path}});width:135px;
+                        height:130px; background-color: #F5F5F5;" {{else}}style="background-image: url({{cdn}}/images/avatar.jpg);width:150px;
+                        height:125px; background-color: #F5F5F5;" {{/if}}>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <h5>{{employee.contacts.0.users.0.name}}</h5>
+                <p><i class="mdi mdi-pin"></i> {{employee.contacts.0.users.0.addresses.0.address}}<br>
+                    <i class="mdi mdi-target"></i> {{employee.status}}<br>
+                    <i class="mdi mdi-mail"></i> <a
+                        href="mailto:{{employee.contacts.0.email}}">{{employee.contacts.0.email}}</a><br>
+                    <i class="mdi mdi-phone"></i> <a href="tel:+255{{employee.contacts.0.phone}}">+255
+                        {{employee.contacts.0.phone}}</a><br>
+                </p>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <h6>other info</h6>
+                <p><i class="mdi mdi-mail"></i>Nida {{employee.contacts.0.users.0.addresses.0.address}}<br>
+                    <i class="mdi mdi-mail"></i> license {{employee.status}}<br>
+                    <i class="mdi mdi-mail"></i> ID <a
+                        href="mailto:{{employee.contacts.0.email}}">{{employee.contacts.0.email}}</a><br>
+                    <i class="mdi mdi-phone"></i> <a href="tel:+255{{employee.contacts.0.phone}}">+255
+                        {{employee.contacts.0.phone}}</a><br>
+                </p>
+            </div>
+        </div>
+        <hr class="ml-1 col-md-9 col-sm-8">
+        <div class="col-md-2 col-sm-4 btn-group">
+            <a href="#" class="btn btn-sm btn-info" onclick="loadTables()" id="btn-table">tables</a>
+            <a href="#" class="btn btn-sm btn-secondary" onclick="loadCharts()" id="btn-chart">charts</a>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xl-12 col-lg-12 row" id="display_report">
+            <div class="col-md-6 col-sm-12 ml-0">
+                <h4 class="col-md-6 col-sm-12"> Collections</h4><br>
+                <table id="basic-datatable1" class="table table-striped dt-responsive nowrap " width="100%">
+                    <thead>
+                        <tr style="background-color: #313a46; color: #ababab;">
+                            <th>{{trs 'date'}}</th>
+                            <th>{{trs 'amount'}}</th>
+                            <th>{{trs 'business'}}</th>
+                            <th>{{trs 'status'}}</th>
+                            <th>{{trs 'options'}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each employee.collections}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{registration}}</td>
+                            <td>{{business}}</td>
+                            <td>{{status}}</td>
+                            <td>
+                                <div class="dropdown text-center">
+                                    <button type="button"
+                                        class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+                                        data-toggle="dropdown" aria-expanded="false"><i
+                                            class="mdi mdi-dots-vertical"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item"
+                                            onclick="largeModal('/businesses/edit/{{id}}', '{{trs 'update'}} {{trs 'Business'}}');">{{trs
+                                            'edit'}}</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item"
+                                            onclick="confirmModal('/businesses/delete/{{id}}', showAllBusinesses)">{{trs
+                                            'delete'}}</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 col-sm-12 ml-0">
+                <h4 class="col-md-12"> Deposits</h4><br>
+                <table id="basic-datatable" class="table table-striped dt-responsive nowrap " width="100%">
+                    <thead>
+                        <tr style="background-color: #313a46; color: #ababab;">
+                            <th>{{trs 'date'}}</th>
+                            <th>{{trs 'amount'}}</th>
+                            <th>{{trs 'business'}}</th>
+                            <th>{{trs 'status'}}</th>
+                            <th>{{trs 'options'}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each employee.collections}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{registration}}</td>
+                            <td>{{business}}</td>
+                            <td>{{status}}</td>
+                            <td>
+                                <div class="dropdown text-center">
+                                    <button type="button"
+                                        class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+                                        data-toggle="dropdown" aria-expanded="false"><i
+                                            class="mdi mdi-dots-vertical"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item"
+                                            onclick="largeModal('/businesses/edit/{{id}}', '{{trs 'update'}} {{trs 'Business'}}');">{{trs
+                                            'edit'}}</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item"
+                                            onclick="confirmModal('/businesses/delete/{{id}}', showAllBusinesses)">{{trs
+                                            'delete'}}</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        initDataTable('basic-datatable1');
+        initDataTable('basic-datatable');
+        function loadTables() {
+            $('#btn-chart').removeClass('btn-info');
+            $('#btn-chart').addClass('btn-secondary');
+            $('#btn-table').removeClass('btn-secondary');
+            $('#btn-table').addClass('btn-info');
+        }
+        function loadCharts() {
+            $('#btn-table').removeClass('btn-info');
+            $('#btn-table').addClass('btn-secondary');
+            $('#btn-chart').removeClass('btn-secondary');
+            $('#btn-chart').addClass('btn-info');
+        }
+
+    </script>

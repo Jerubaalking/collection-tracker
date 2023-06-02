@@ -1,0 +1,82 @@
+<div class="row">
+    {{#each employees}}
+    <div class="row col-md-4 col-sm-12 m-1">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body row">
+                    <div class="col-md-4 col-sm-4">
+                        {{!-- <img {{#if ../employees}}src="{{upload.path}}" alt="" srcset="{{upload.path}}" {{else}}
+                            src="{{cdn}}/images/avatar.jpg" alt="" srcset="{{cdn}}/images/avatar.jpg" {{/if}}
+                            style="height:120px; margin-left:-20px;"> --}}
+                        <div class="rounded-circle rounded-bottom js--image-preview mr-5 mt-2" {{#if
+                            ../employees}}style="background-image: url({{image}}{{contacts.0.users.0.upload.path}});width:120px;
+                        height:115px; background-color: #F5F5F5;" {{else}}style="background-image: url({{cdn}}/images/avatar.jpg);width:120px;
+                        height:115px; background-color: #F5F5F5;" {{/if}}>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+                        <!-- dropdown dot menu-->
+                        <div class="dropdown text-right">
+                            <a class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown"
+                                aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                    onclick="largeModal('/employees/employers/create/{{id}}', 'update employer', 'mdi mdi-pencil text-info')">
+                                    <i class="mdi mdi-account-sync text-info menu-icons"></i> request employement
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                    onclick="mediumModal('/users/upload/{{id}}', '{{name}} image', 'mdi mdi-account text-info')">
+                                    <i class="mdi mdi-account-tag text-info menu-icons"></i> update image
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                    onclick="largeModal('/users/password/{{id}}', '{{name}} password', 'mdi mdi-pencil text-info')">
+                                    <i class="mdi mdi-account-key text-info menu-icons"></i> password
+                                </a><!-- item-->
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                    onclick="largeModal('/users/password/{{id}}', '{{name}} password', 'mdi mdi-pencil text-info')">
+                                    <i class="mdi mdi-facebook text-info menu-icons"></i> add social
+                                </a><!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                    onclick="mediumModal('/users/address/{{id}}', '{{name}} addresses', 'mdi mdi-pencil text-info')">
+                                    <i class="mdi mdi-map-marker-plus text-info menu-icons"></i> address
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                    onclick="confirmModal('/users/delete/{{id}}', showAllUsers )">
+                                    <i class="mdi mdi-delete text-danger menu-icons"></i> delete account
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end dropdown dot menu -->
+                        <h5>{{contacts.0.users.0.name}}</h5>
+                        <p><i class="mdi mdi-pin"></i> {{contacts.0.users.0.addresses.0.address}}<br>
+                            <i class="mdi mdi-account-sync"></i> {{status}}<br>
+                            <i class="mdi mdi-mail"></i> <a
+                                href="mailto:{{contacts.0.email}}">{{contacts.0.email}}</a><br>
+                            <i class="mdi mdi-phone"></i> <a href="tel:+255{{contacts.0.phone}}">+255
+                                {{contacts.0.phone}}</a><br>
+                        </p>
+                        <div class="col-md-12">
+                            <a href="#"
+                                onclick="largeModal('/employees/edit/{{id}}', 'update employer', 'mdi mdi-pencil text-info')"
+                                class="btn-sm btn-primary">edit</a>
+                            <a href="#"
+                                onclick="largerModal('/employees/profile/{{id}}', '{{contacts.0.users.0.name}} profile', 'mdi mdi-account text-info')"
+                                class="ml-2 btn-sm btn-info">profile</a>
+                            {{!-- <a href="#" onclick="confirmModal('/employees/{{id}}', showAllEmployers, '{{name}}')"
+                                class="ml-2 btn-sm btn-danger">delete</a> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+<script>
+   // initDataTable('basic-datatable1');
+</script>

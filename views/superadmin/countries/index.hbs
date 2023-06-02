@@ -1,0 +1,80 @@
+<!--title-->
+<div class="row ">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="page-title">
+          <i class="mdi mdi-country-usd text-warning title_icon"></i> {{trs 'countries'}}
+          <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle"
+            onclick="largeModal('/countries/create', ' {{trs 'create'}} {{trs 'country' }}')"> <i
+              class="mdi mdi-plus"></i>
+            {{trs 'add'}} {{trs 'country'}}
+          </button>
+        </h4>
+      </div> <!-- end card body-->
+    </div> <!-- end card -->
+  </div><!-- end col-->
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body country_content">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  $(document).ready(() => {
+    showAllCurrencies();
+  });
+  var showAllCurrencies = function () {
+    var url = '/countries/list';
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        console.log('response', response)
+        $('.country_content').html(response);
+        initSelect2(['#currencyId']);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+</script>
+<!-- permission insert and update -->
+<script>
+
+  function changePermission(checkbox) {
+    var value = $(checkbox).val();
+    if (value == 1) {
+      value = 0;
+      $(checkbox).val(0);
+      $(checkbox).remove('checked');
+    } else {
+      value = 1;
+      $(checkbox).val(1);
+      $(checkbox).add('checked');
+    }
+    //console.log('values::::', $(checkbox), value)
+  }
+  function changeCurrency(item, countryId) {
+    let currencyId = $(item).val();
+    $.ajax({
+      method: 'GET',
+      url: '/countries/update/currency/' + countryId + '/' + currencyId,
+      success(response) {
+        if (response.status) {
+          'currencyId'
+          toastr.success(response.notification);
+        } else {
+
+          toastr.error(response.notification);
+        }
+      }
+    })
+  }
+</script>

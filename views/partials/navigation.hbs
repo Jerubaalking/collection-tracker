@@ -1,0 +1,66 @@
+<!-- ========== Left Sidebar Start ========== -->
+<div class="left-side-menu left-side-menu-detached content-main">
+
+  <div class="leftbar-user">
+    <a href="javascript: void(0);">
+      <span class="leftbar-user-name">{{viewManager.name}}</span>
+    </a>
+  </div>
+  <!--- Sidemenu -->
+  <ul class="metismenu side-nav side-nav-light">
+    <li class="side-nav-title side-nav-item">{{trs viewManager.role.role}} {{trs 'Navigation'}}</li>
+   
+    {{#each menus}}
+    <li class="side-nav-item" id="{{trs display_name}}-mail-li">
+      <a class="side-nav-link" id="{{trs display_name}}-main-a">
+        <i class="{{icon}}"></i>
+        <span>
+          {{trs display_name}}
+        </span>
+        <span class="menu-arrow"></span>
+      </a>
+      <ul class="side-nav-second-level" aria-expanded="false" id="{{trs display_name}}-main-ul">
+        {{#each ../sub_menu}}
+
+        {{#ifEquals parent ../id}}
+        {{#ifEquals route_name '/home'}}
+        <li class="side-nav-item _item" id="{{trs display_name}}-small-li">
+          <a onclick="loadPage('/home','{{trs display_name}}', '{{trs display_name}}', '{{trs ../display_name}}')"
+            aria-expanded="false" id="{{trs display_name}}-small-a">
+            <i class="{{icon}}"></i>
+            <span>
+              {{trs display_name}}
+            </span>
+            <span class="menu-arrow"></span>
+          </a>
+        </li>
+        {{else}}
+        <li class="side-nav-item _item" id="{{trs display_name}}-small-li">
+          <a onclick="loadPage('{{route_name}}','{{trs display_name}}', '{{trs display_name}}', '{{trs ../display_name}}')"
+            aria-expanded="false">
+            <i class="{{icon}}"></i>
+            <span>{{trs display_name}}</span>
+          </a>
+        </li>
+        {{/ifEquals}}
+        {{/ifEquals}}
+        {{/each}}
+      </ul>
+
+    </li>
+    {{/each}}
+    <!-- another loop-->
+  </ul>
+  <div class="clearfix">
+    {{!--
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          © <a href="/footer_link" target="_blank">
+            footer text
+          </a>
+        </div>
+      </div>
+    </div> --}}
+  </div>
+</div>

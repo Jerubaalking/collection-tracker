@@ -1,0 +1,30 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr style="background-color: #313a46; color: #ababab;">
+            <th>title</th>
+            <th>syllabus</th>
+            <th>subject</th>
+            <th>options</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each syllabuses}}
+        <tr>
+            <td>
+                {{title}}
+            <td><a href="{{file}}" class="btn btn-info mdi mdi-download" download>
+                    download
+                </a></td>
+            <td>
+                {{name}}
+            </td>
+            <td>
+                <button type="button" class="btn btn-icon btn-secondary btn-sm" style="margin-right:5px;"
+                    onclick="confirmModal('/syllabus/delete/{{id}}', showAllSyllabuses)" data-toggle="tooltip"
+                    data-placement="top" title="" data-original-title="delete syllabus"> <i
+                        class="mdi mdi-window-close"></i></button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

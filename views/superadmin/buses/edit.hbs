@@ -1,0 +1,79 @@
+<form method="POST" class="d-block ajaxForm" action="/buses/routes/edit/{{route.id}}">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="name">
+                name
+            </label>
+            <input type="text" class="form-control" value="{{route.name}}" id="name" name="name" required>
+            <small id="name_help" class="form-text text-muted">
+                provide route name
+            </small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="roads">
+                roads
+            </label>
+            <input type="text" value="{{route.roads}}" class="form-control" id="roads" name="roads" required>
+            <small id="name_help" class="form-text text-muted">
+                fill route roads
+            </small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="route-start">
+                route start
+            </label>
+            <input type="text" value="{{route.route_start}}" class="form-control" id="route_start" name="route_start"
+                required>
+            <small id="name_help" class="form-text text-muted">
+                where route starts
+            </small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="route_end">
+                route end
+            </label>
+            <input type="text" value="{{route.route_end}}" class="form-control" id="route_end" name="route_end"
+                required>
+            <small id="name_help" class="form-text text-muted">
+                where route ends
+            </small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="vehicleId">
+                vehicle
+            </label>
+
+            <select name="vehicleId" id="vehicleId" class="form-control select2" data-toggle="select2" required>
+                <option value="">
+                    assign a vehicle
+                </option>
+                {{#each vehicles}}
+                {{#ifEquals id ../route.vehicleId}}
+                <option selected value="{{id}}">{{registration}}
+                </option>
+                {{else}}
+                <option value="{{id}}">{{registration}}
+                </option>
+                {{/ifEquals}}
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">
+                update bus route
+            </button>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    $('document').ready(function () {
+        initSelect2(['#vehicleId']);
+    });
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllRoutes);
+    });
+</script>

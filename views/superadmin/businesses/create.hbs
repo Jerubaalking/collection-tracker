@@ -1,0 +1,154 @@
+<script src="{{cdn}}/js/init.js"></script>
+<form method="POST" class="d-block ajaxForm" action="/businesses/create">
+    <div class="form-row">
+        {{!-- <input type="hidden" name="school_id" value=""> --}}
+
+        <div class="form-group row col-md-12">
+            <div class="form-group col-md-6">
+                <label for="name">{{trs 'Business'}} {{trs 'name'}}</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+                <small id="name_help" class="form-text text-muted">{{trs 'provide'}} {{trs 'name'}}</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="registration">{{trs 'registration'}}</label>
+                <input type="text" class="form-control" id="registration" name="registration" required>
+                <small id="registration_help" class="form-text text-muted">{{trs 'provide'}} {{trs
+                    'registration'}}</small>
+            </div>
+        </div>
+        <div class="form-group row col-md-12">
+            <div class="form-group col-md-6">
+                <label for="tin">{{trs 'Business'}} TIN</label>
+                <input type="text" class="form-control" id="tin" name="tin" required>
+                <small id="tin_help" class="form-text text-muted">{{trs 'provide'}} tin</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="license">{{trs 'Business'}} {{trs 'License'}}</label>
+                <input type="text" class="form-control" placeholder="{{trs 'license'}}" id="license" name="license"
+                    required>
+                <small id="license_help" class="form-text text-muted">{{trs 'provide'}} {{trs 'license'}}</small>
+            </div>
+        </div>
+        <div class="form-group row col-md-12">
+            <div class="form-group col-md-6">
+                <label for="email">{{trs 'Business'}} {{trs 'email'}}</label>
+                <input type="text" class="form-control" id="email" name="email"
+                    placeholder="{{trs 'email'}} {{trs '.eg'}} xyz@example.com" required>
+                <small id="email_help" class="form-text text-muted">{{trs 'provide'}} {{trs 'email'}}</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="phone">{{trs 'Business'}} {{trs 'phone'}}</label>
+                <textarea class="form-control" id="phone" name="phone" placeholder="phone...." required></textarea>
+                <small id="phone_help" class="form-text text-muted">{{trs 'provide'}} {{trs 'phone'}}</small>
+            </div>
+        </div>
+        <hr class="col-md-12">
+        <label for="" style="text-align: center;" class="col-md-12">{{trs 'Business'}} {{trs 'Address'}} &
+            {{trs 'purpose'}}</label>
+        <hr class="col-md-12">
+        <div class="form-group row col-md-12">
+            <div class="form-group col-md-6">
+                <label for="purpose">{{trs 'Business'}} {{trs 'purpose'}}</label>
+                <textarea class="form-control" id="purpose" name="purpose" placeholder="{{trs 'purpose'}}...."
+                    required></textarea>
+                <small id="purpose_help" class="form-text text-muted">{{trs 'provide'}} {{trs 'purpose'}}</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address">{{trs 'Business'}} {{trs 'address'}}</label>
+                <textarea class="form-control" id="address" name="address" placeholder="{{trs 'address'}}...."
+                    required></textarea>
+                <small id="address_help" class="form-text text-muted">{{trs 'provide'}} {{trs 'address'}}</small>
+            </div>
+        </div>
+        <div class="form-group col-md-12 row">
+            <div class="form-group col-md-12">
+                <label for="vision">{{trs 'Business'}} {{trs 'vision'}}</label>
+                <textarea class="form-control" id="vision" name="vision" placeholder="{{trs 'vision'}}...."
+                    required></textarea>
+                <small id="vision_help" class="form-text text-muted">{{trs 'provide'}} {{trs 'vision'}}</small>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="mission_statement">{{trs 'Business'}} {{trs 'mission'}}</label>
+                <textarea class="form-control" id="mission_statement" name="mission_statement"
+                    placeholder="{{trs 'mission'}} {{trs 'statement'}}...." required></textarea>
+                <small id="mission_statement_help" class="form-text text-muted">{{trs 'provide'}} {{trs
+                    'mission'}}
+                    {{trs 'statement'}}</small>
+            </div>
+        </div>
+
+        <div class="form-group row col-md-12">
+            <div class="form-group row mb-2 col-md-6">
+                <label class="col-md-3 col-form-label" for="example-fileinput">
+                    {{trs 'business'}} {{trs 'logo'}}
+                </label>
+                <div class="col-md-9 custom-file-upload">
+                    <div class="wrapper-image-preview" style="margin-left: -6px;">
+                        <div class="box" style="width: 250px;">
+                            <div class="js--image-preview"
+                                style="background-image: url(/public/images/logo-dark.jpg); background-color: #F5F5F5;">
+                            </div>
+                            <div class="upload-options">
+                                <label for="business_logo" class="btn"> <i class="mdi mdi-camera"></i>
+                                    {{trs 'upload'}} {{trs 'logo'}}
+                                </label>
+                                <input id="business_logo" style="visibility:hidden;" type="file" class="image-upload"
+                                    name="business_logo" accept="image/png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2 col-md-6">
+                <label class="col-md-3 col-form-label" for="example-fileinput">
+                    {{trs 'business'}} {{trs 'stamp'}}
+                </label>
+                <div class="col-md-9 custom-file-upload">
+                    <div class="wrapper-image-preview" style="margin-left: -6px;">
+                        <div class="box" style="width: 250px;">
+                            <div class="js--image-preview"
+                                style="background-image: url(/public/images/logo-dark.jpg); background-color: #F5F5F5;">
+                            </div>
+                            <div class="upload-options">
+                                <label for="business_stamp" class="btn"> <i class="mdi mdi-camera"></i>
+                                    {{trs 'upload'}} {{trs 'stamp'}}
+                                </label>
+                                <input id="business_stamp" style="visibility:hidden;" type="file" class="image-upload"
+                                    name="business_stamp" accept="image/png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="col-md-12">
+        <div class="form-group col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">
+                {{trs 'create'}} {{trs 'business'}}
+            </button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllBusinesses);
+    });
+</script>
+<script>
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const lat = position.coords.latitude;
+            const long = position.coords.longitude;
+            console.log('latitude:', lat);
+            console.log('longitude', long)
+        }, (err) => {
+            console.error('Error occured getting location', err);
+        })
+    } else {
+        console.error('geolocation is not supported by this browser');
+    }
+</script>

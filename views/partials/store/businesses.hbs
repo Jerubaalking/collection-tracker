@@ -1,0 +1,47 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>TIN</th>
+            <th>Stores</th>
+            <th>Employees</th>
+            <th>Status</th>
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each businesses}}
+        <tr>
+            <td>
+                {{name}}
+            </td>
+            <td>
+                {{!--
+                <?php
+                    $class = $this->crud_model->get_classes($invoice['class_id'])->row_array();
+                    echo $class['name'];
+                 ?> --}}
+                {{tin}}
+            </td>
+            <td>
+                {{!--
+                <?php echo  currency($invoice['total_amount']) ; ?> --}}
+                {{store_count}}
+            </td>
+            <td>
+                {{!--
+                <?php echo  currency($invoice['paid_amount']) ; ?> --}}
+                {{employee_count}}
+            </td>
+            <td>
+                {{status}}
+            </td>
+            <td>
+                <a href="#" class="btn btn-info">Enter</a>
+            </td>
+        </tr>
+        {{!--
+        <?php endforeach; ?> --}}
+        {{/each}}
+    </tbody>
+</table>

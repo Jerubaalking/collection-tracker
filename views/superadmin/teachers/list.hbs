@@ -1,0 +1,51 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr style="background-color: #313a46; color: #ababab;">
+            <th>image</th>
+            <th>name</th>
+            <th>department</th>
+            <th>designation</th>
+            <th>options</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each teachers}}
+        <tr>
+            <td><img class="rounded-circle" width="50" height="50"
+                    src="/public/uploads/images/users/{{{kaimage user.name}}}.jpg"></td>
+            <td>
+                {{user.name}}
+            </td>
+            <td>{{department.name}}
+            </td>
+            <td>
+                {{designation}}
+            </td>
+            <td>
+                <div class="dropdown text-center">
+                    <button type="button"
+                        class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+                        data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="rightModal('teachers/permission_overview/{{id}}/{{user.id}}', 'Assigned Permission')">
+                            permissions
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="rightModal('/teachers/edit/{{id}}', 'Update Teacher')">
+                            edit
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="confirmModal('/teachers/delete/{{id}}', showAllTeachers )">
+                            delete
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

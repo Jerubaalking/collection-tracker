@@ -1,0 +1,18 @@
+{{#each languages}}
+<!-- item-->
+{{#ifEquals abbreviation ../current}}
+<option value="{{abbreviation}}" selected>
+    <span class=" badge badge-secondary-lighten">
+        {{trs name}} <i class="mdi mdi-check color-success"></i>
+    </span>
+
+</option>
+{{else}}
+<option value="{{abbreviation}}">
+    <span class="">
+        {{trs name}}
+    </span>
+
+</option>
+{{/ifEquals}}
+{{/each}}

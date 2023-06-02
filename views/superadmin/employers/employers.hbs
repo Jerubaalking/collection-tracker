@@ -1,0 +1,70 @@
+<div class="row">
+    {{#each employers}}
+    <div class="row col-md-4 col-sm-12 m-1">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body row">
+                    <div class="col-md-4 col-sm-4">
+                        {{!-- <img {{#if ../employers}}src="{{upload.path}}" alt="" srcset="{{upload.path}}" {{else}}
+                            src="{{cdn}}/images/avatar.jpg" alt="" srcset="{{cdn}}/images/avatar.jpg" {{/if}}
+                            style="height:120px; margin-left:-20px;"> --}}
+                        <div class="rounded-circle rounded-bottom js--image-preview mr-5 mt-2" {{#if
+                            ../employers}}style="background-image: url({{image}}{{upload.path}});width:120px;
+                        height:115px; background-color: #F5F5F5;" {{else}}style="background-image: url({{cdn}}/images/avatar.jpg);width:120px;
+                        height:115px; background-color: #F5F5F5;" {{/if}}>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+                        <!-- dropdown dot menu-->
+                        <div class="dropdown text-right">
+                            <a class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown"
+                                aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                    onclick="largeModal('/employers/employees/create/{{id}}', 'update employer', 'mdi mdi-account-cog text-info')">
+                                    <i class="mdi mdi-account-key text-info"></i> add employee
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                    onclick="mediumModal('/employers/employees/{{id}}', '{{name}} image', 'mdi mdi-account text-info')">
+                                    <i class="mdi mdi-account-group text-info"></i> employees
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                    onclick="mediumModal('/employers/employees/{{id}}', '{{name}} image', 'mdi mdi-account text-info')">
+                                    <i class="mdi mdi-plus text-info"></i> add tasks
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                    onclick="mediumModal('/employers/employees/{{id}}', '{{name}} image', 'mdi mdi-account text-info')">
+                                    <i class="mdi mdi-forklift text-info"></i> assign tasks
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end dropdown dot menu -->
+                        <h5>{{name}}</h5>
+                        <p><i class="mdi mdi-pin"></i> {{addresses.0.address}}<br>
+                            <i class="mdi mdi-comment-processing"></i> {{status}}<br>
+                            <i class="mdi mdi-mail"></i> <a
+                                href="mailto:{{contacts.0.email}}">{{contacts.0.email}}</a><br>
+                            <i class="mdi mdi-phone"></i> <a href="tel:+255{{contacts.0.phone}}">+255
+                                {{contacts.0.phone}}</a><br>
+                        </p>
+                        <div class="col-md-12">
+                            <a href="#"
+                                onclick="largeModal('/employers/edit/{{id}}', 'update employer', 'mdi mdi-pencil text-info')"
+                                class="btn-sm btn-primary">edit</a>
+                            <a href="#"
+                                onclick="largeModal('/employers/profile/{{id}}', 'profile', 'mdi mdi-account text-info')"
+                                class="ml-2 btn-sm btn-info">profile</a>
+                            <a href="#" onclick="confirmModal('/employers/{{id}}', showAllEmployers, '{{name}}')"
+                                class="ml-2 btn-sm btn-danger">delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

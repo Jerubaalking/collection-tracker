@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="card bg-secondary text-grey">
+            <div class="card-body">
+                <div class="text-center">
+                    <h4>Attendance Report of {{intro.month}}</h4>
+                    <h5>
+                        Class : {{intro.class}}
+                    </h5>
+                    <h5>Section: {{intro.section}}
+                    </h5>
+                </div>
+            </div> <!-- end card-body-->
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<table
+    class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl table-sm">
+    <thead style="font-size:x-small" class="thead-dark" width="100%">
+        <th width="40px">
+            student <i class="mdi mdi-arrow-down"></i>
+            date<i class="mdi mdi-arrow-right"></i>
+        </th>
+        {{#each monthData.timestamp}}
+        <th>
+            {{this}}
+        </th>
+        {{/each}}
+
+        {{!--
+        <?php endfor; ?> --}}
+    </thead>
+    <tbody>
+        {{#each monthData.class_attendance}}
+        <tr>
+            <td>
+                {{student.user.name}}
+            </td>
+            {{#each attendances}}
+            <td class="text-center">
+                {{#ifEquals status 1}}
+                <i class="mdi mdi-account-check text-success" style="font-size: 20px;" title="present"></i>
+
+                {{/ifEquals}}
+                {{#ifEquals status '#'}}
+                <i class="mdi mdi-account-clock text-light" style="font-size: 20px;" title="unknown"></i>
+                {{/ifEquals}}
+                {{#ifEquals status 0}}
+                <i class="mdi mdi-account-cancel text-danger" style="font-size: 20px;" title="absent"></i>
+                {{/ifEquals}}
+            </td>
+            {{/each}}
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<div class="row d-print-none mt-3">
+    <div class="col-12 text-right"><a href="javascript:window.print()" class="btn btn-primary"><i
+                class="mdi mdi-printer"></i>
+            print
+        </a></div>
+</div>

@@ -1,0 +1,106 @@
+<script src="http://localhost:5000/public/js/jquery-3.5.1.js"></script>
+<link rel="stylesheet" href="http://localhost:5000/public/css/app.min.css" type="text/css">
+<link href="http://localhost:5000/public/css/jquery-datatables.css" rel="stylesheet" type="text/css" />
+<style>
+    body {
+        margin-top: 0px;
+        background: rgb(255, 255, 255);
+    }
+
+    .invoice {
+        padding: 30px;
+    }
+
+    .invoice h2 {
+        margin-top: 0px;
+        line-height: 0.8em;
+    }
+
+    .invoice .small {
+        font-weight: 300;
+    }
+
+    .invoice hr {
+        margin-top: 10px;
+        border-color: #ddd;
+    }
+
+    .invoice .table tr.line {
+        border-bottom: 1px solid #ccc;
+    }
+
+    .invoice .table td {
+        border: none;
+    }
+
+    .invoice .identity {
+        margin-top: 10px;
+        font-size: 1.1em;
+        font-weight: 300;
+    }
+
+    .invoice .identity strong {
+        font-weight: 600;
+    }
+
+
+    .grid {
+        position: relative;
+        width: 100%;
+        background: #fff;
+        color: #666666;
+        border-radius: 2px;
+        margin-bottom: 25px;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        font-size: 11.5px;
+    }
+
+
+    .page-break {
+        display: block;
+        clear: both;
+        page-break-after: always;
+    }
+
+    tbody {
+        word-break: break-word;
+    }
+
+    thead {
+
+        display: table-header-group
+    }
+
+    tfoot {
+        display: table-row-group
+    }
+
+    .leftisha {
+        padding-left: 5px;
+        display: inline;
+        margin: 0;
+    }
+
+    .leftisha p {
+        margin: 0;
+        float: left;
+    }
+
+    .watermark {
+        position: absolute;
+        bottom: 0;
+        left: 60;
+        top: 45;
+        right: 0;
+        opacity: 0.04;
+        z-index: 99;
+        color: rgb(114, 17, 17);
+        font-size: 56px;
+    }
+</style>
+<title>
+    {{title}} report
+</title>

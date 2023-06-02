@@ -1,0 +1,46 @@
+<script src="{{cdn}}/js/select2.min.js"></script>
+<form method="POST" class="d-block ajaxForm" action="{{action}}">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="name">
+                {{trs 'name'}}
+            </label>
+            <input type="text" placeholder="{{trs 'name'}}" value="{{task.name}}" class="form-control" id="name"
+                name="name" required>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide task name'}}
+            </small>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="descriptions">
+                {{trs 'descriptions'}}
+            </label>
+            <textarea placeholder="{{trs 'descriptions'}}" class="form-control" id="name" name="name"
+                required>{{task.descriptions}}</textarea>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide'}} {{trs 'task description'}}
+            </small>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="scheduleId">
+                {{trs 'schedule'}}
+            </label>
+            <select name="scheduleId" id="scheduleId" class="form-control select2" data-toggle="select2">
+                <option value="" disabled selected>select schedule
+                </option>
+                {{#each schedules}}
+                {{#ifEquals id ../task.schedules.0.schedule.id}}
+                <option value="{{id}}" selected>{{name}}</option>
+                {{else}}
+                <option value="{{id}}">{{name}}</option>
+                {{/ifEquals}}
+                {{/each}}
+            </select>
+        </div>
+    </div>
+</form>
+<script>
+    $('#scheduleId').select2({
+        dropdownParent: $('#large-modal')
+    });
+</script>

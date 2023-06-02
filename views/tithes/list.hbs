@@ -1,0 +1,50 @@
+<div class="table-responsive-sm">
+  <div style="margin-bottom: 10px;" class="row">
+    <h5 class="col-md-10" style="text-align: center;">{{church}} {{title}}</h5>
+  </div>
+  <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead class="thead-dark">
+      <tr>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Account</th>
+        <th>Company</th>
+        <th>receipt</th>
+        <th>option</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each tithes}}
+      <tr>
+        <td style="color: green;"> <i class="mdi mdi-lock"></i> {{transaction.account_type}} </td>
+        <td>{{setDate date}}</td>
+        <td>{{amount}}</td>
+        <td>{{transaction.method.name}}</td>
+        <td>{{transaction.method.company}}</td>
+        <td>{{transaction.receipt}}</td>
+        <td>
+          <div class="dropdown text-center">
+            <button type="button"
+              class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+              data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <!-- item-->
+              <a href="javascript:void(0);" class="dropdown-item"
+                onclick="rightModal('/tithes/{{id}}', 'update tithe');"><i class="mdi mdi-update"
+                  style="color:rgb(0, 142, 5); font-size:17px;"></i> edit</a>
+              <a href="javascript:void(0);" class="dropdown-item"
+                onclick="rightModal('/tithes/{{id}}', 'update tithe');"><i class="dripicons-information"
+                  style="color:blue;"></i> info </a>
+              <!-- item-->
+              <a href="javascript:void(0);" class="dropdown-item"
+                onclick="confirmModal('/tithes/delete/{{id}}', showAllTithes )"> <i class="dripicons-trash"
+                  style="color:brown;"></i> delete </a>
+            </div>
+          </div>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

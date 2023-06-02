@@ -1,0 +1,105 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr style="background-color: #313a46; color: #ababab;">
+            <th>Task-Info</th>
+            <th>Time-Info</th>
+            <th>Permission</th>
+            <th>option</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each tasks}}
+        <tr>
+            <td class="row">
+                <div class="col-md-1 col-sm-6">
+                    <div class="rounded-circle rounded-bottom js--image-preview" style="background-image: url({{image}}{{upload.path}});width:100px;
+                        height:100px; background-color: #F5F5F5;">
+                    </div>
+
+                </div>
+                <div class="col-md-8 col-sm-6 offset-md-2 offset-sm-1">
+                    <h6>name: <span>{{name}}</span></h6>
+                    <h6>gender: <span>{{gender}}</span></h6>
+                    <h6>role: {{#ifEquals roles.0.role 'admin'}}<span style="font-size: medium;"
+                            class="badge badge-primary">{{roles.0.role}}</span>{{else}}{{#ifEquals roles.0.role
+                        'employer'}}<span style="font-size: medium;"
+                            class="badge badge-warning">{{roles.0.role}}</span>{{else}}{{#ifEquals roles.0.role
+                        'employee'}}<span style="font-size: medium;"
+                            class="badge badge-info">{{roles.0.role}}</span>{{else}}<span style="font-size: medium;"
+                            class="badge badge-danger">{{roles.0.role}}</span>{{/ifEquals}}{{/ifEquals}}{{/ifEquals}}
+                    </h6>
+                </div>
+
+            </td>
+            <td>
+                <h6>phone: <a href="tel:+{{contacts.0.phone}}"
+                        style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:medium;"><span>{{contacts.0.phone}}</span></a>
+                </h6>
+                <h6>email: <a href="mailto:{{contacts.0.email}}"
+                        style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:medium;"><span>{{contacts.0.email}}</span></a>
+                </h6>
+                <h6>address:
+                    <span>{{addresses.0.address}} {{addresses.0.region.name}}</span>
+                </h6>
+                <h6>region:
+                    <span>{{addresses.0.region.name}}</span>
+                </h6>
+                <h6>country:
+                    <span>{{addresses.0.region.countries.0.name}}</span>
+                </h6>
+            </td>
+            <td>
+                <small id="name_help" class="form-text text-muted bold" style="font-weight: 800;">verified phone
+                    number</small>
+                <input type="checkbox" class="mb-1" value="{{id}}" id="start_verification{{id}}" data-switch="info"
+                    onchange="togglePermission(this, '{{../id}}', '{{id}}');" {{#ifEquals contacts.0.verified_number
+                    1}}checked{{else}}{{/ifEquals}} disabled>
+                <label for="start_verification{{id}}" data-on-label="yes" data-off-label="no"></label>
+
+                <small id="name_help" class="form-text text-muted" style="font-weight: 800;">verified email</small>
+                <input type="checkbox" class="mb-1" value="1" id="verified{{id}}" data-switch="success"
+                    onchange="togglePermission(this, '{{../id}}', '{{id}}');" {{#ifEquals contacts.0.verified_email
+                    1}}checked{{else}}{{/ifEquals}} disabled>
+                <label for="verified{{id}}" data-on-label="Yes" data-off-label="No"></label>
+            </td>
+            <td>
+                <div class="dropdown text-center">
+                    <button type="button"
+                        class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+                        data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="largeModal('/users/edit/{{id}}', 'update user', 'mdi mdi-pencil text-info')">
+                            edit
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="mediumModal('/users/upload/{{id}}', '{{name}} image', 'mdi mdi-account text-info')">
+                            upload
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="largeModal('/users/password/{{id}}', '{{name}} password', 'mdi mdi-pencil text-info')">
+                            password
+                        </a><!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="mediumModal('/users/address/{{id}}', '{{name}} addresses', 'mdi mdi-pencil text-info')">
+                            address
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="confirmModal('/users/delete/{{id}}', showAllUsers )">
+                            delete
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{!--
+<?php else: ?>
+<?php include APPPATH.'views/backend/empty.php'; ?>
+<?php endif; ?> --}}

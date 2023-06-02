@@ -1,0 +1,26 @@
+<form method="POST" class="d-block ajaxForm" action="/classrooms/edit/{{classroom.id}}">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="name">
+                classroom name
+            </label>
+            <input type="text" class="form-control" value="{{classroom.name}}" id="name" name="name" required>
+            <small id="name_help" class="form-text text-muted">provide classroom
+            </small>
+        </div>
+
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">
+                update classroom
+            </button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllClassRooms);
+    });
+</script>

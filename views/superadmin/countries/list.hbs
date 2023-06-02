@@ -1,0 +1,55 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr style="background-color: #313a46; color: #ababab;">
+            <th>{{trs 'name'}}</th>
+            <th>{{trs 'initial'}}</th>
+            <th>{{trs 'zip'}} {{trs 'code'}}</th>
+            <th>{{trs 'active'}} {{trs 'currency'}}</th>
+            <th>{{trs 'options'}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each countries}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{initial}}</td>
+            <td>{{zip}}</td>
+            <td class="form-group">
+                <select class="form-control" name="currencyId" id="currencyId"
+                    onchange="changeCurrency(this,'{{id}}');">
+                    {{#each ../currencies}}
+                    {{#ifEquals id ../currencies.0.id}}
+                    <option value="{{id}}" selected>{{name}}</option>
+                    {{else}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/ifEquals}}
+                    {{/each}}
+            </td>
+            </select>
+            <td>
+                <div class="dropdown text-center">
+                    <button type="button"
+                        class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+                        data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="largeModal('/countries/edit/{{id}}', '{{trs 'update'}} {{trs 'country'}}')">
+                            {{trs 'edit'}}
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="confirmModal('countries/delete/{{id}}', showAllCurrencies )">
+                            {{trs 'delete'}}
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{!--
+<?php else: ?>
+<?php include APPPATH.'views/backend/empty.php'; ?>
+<?php endif; ?> --}}

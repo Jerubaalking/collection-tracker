@@ -1,0 +1,59 @@
+<!--title-->
+<div class="row ">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="page-title">
+          <i class="mdi mdi-account-child-circle text-primary title_icon"></i> All Clients
+          <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle"
+            onclick="largeModal('/clients/create', 'create client')"> <i class="mdi mdi-plus"></i>
+            create client
+          </button>
+        </h4>
+      </div> <!-- end card body-->
+    </div> <!-- end card -->
+  </div><!-- end col-->
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body client_content">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var addAddress = () => {
+    $('#addressTray').append(`<textarea class="form-control" id="address[]" name="address[]" rows="5" required></textarea>
+                <small id="" class="form-text text-muted">
+                    provide client address
+                </small>`)
+  }
+  var addPhone = () => {
+    $('#phoneTray').append(`
+                <input type="text" class="form-control" id="phone[]" name="phone[]" required>
+                <small id="" class="form-text text-muted">
+                    provide client phone number
+                </small>`);
+  }
+  $(document).ready(() => {
+    showAllClients();
+  });
+
+  var showAllClients = function () {
+    var url = '/clients/list';
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //console.log('response', response)
+        //https://1637314617.rsc.cdn77.org/offers/bydomain/" + o + ".json"
+        $('.client_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+</script>

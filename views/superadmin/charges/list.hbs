@@ -1,0 +1,56 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr style="background-color: #313a46; color: #ababab;">
+            <th>name</th>
+            <th>categories</th>
+            <th>descriptions</th>
+            <th>option</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each charges}}
+        <tr>
+            <td>
+                <i class="mdi mdi-wallet text-primary"></i> {{name}}
+            </td>
+            <td>
+                {{#each charge_categories}}
+                <i class="mdi mdi-order-bool-descending-variant text-info"></i> <strong>{{category.name}}</strong><span
+                    class="text-danger"> {{money amount}}</span><br>
+                {{!-- {{#each ../charge_categories}}
+                <small><strong class="text-danger"> {{money amount}}</strong></small><br>
+                {{/each}} --}}
+                {{/each}}
+
+            </td>
+            <td>
+                <p>{{description}}</p>
+            </td>
+            <td>
+                <div class="dropdown text-center">
+                    <button type="button"
+                        class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+                        data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="largeModal('/charges/edit/{{id}}', 'update charge', 'mdi mdi-pencil text-info')">
+                            edit
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="largeModal('/charges/categories/create/{{id}}', '{{name}} category', 'mdi mdi-order-bool-descending-variant text-info')">
+                            add categories
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="confirmModal('/charges/delete/{{id}}', showAllCharges )">
+                            delete
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

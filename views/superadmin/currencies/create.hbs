@@ -1,0 +1,115 @@
+<form method="POST" class="d-block ajaxForm" action="/currencies/create">
+    <div class="form-row">
+        <div class="form-group col-md-12 row">
+            <div class="form-group col-md-6">
+                <label for="name">
+                    {{trs 'name'}}
+                </label>
+                <input type="text" class="form-control" id="name" name="name" required>
+                <small id="" class="form-text text-muted">
+                    {{trs 'provide'}} {{trs 'fullname'}}
+                </small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="code">
+                    {{trs 'code'}}
+                </label>
+                <input type="code" class="form-control" id="code" name="code" required>
+                <small id="" class="form-text text-muted">
+                    {{trs 'provide'}} {{trs 'code'}}
+                </small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="symbol">
+                    {{trs 'symbol'}}
+                </label>
+                <input type="symbol" class="form-control" id="symbol" name="symbol" required>
+                <small id="" class="form-text text-muted">
+                    {{trs 'provide'}} {{trs 'symbol'}}
+                </small>
+            </div>
+        </div>
+        <div class="col-md-12 row">
+            <div class="form-group col-md-12">
+                <label for="" class="mb-0"><i class="mdi mdi-arrow-down"></i>
+                    <p style="text-decoration: underline;">{{trs 'Currency'}} {{trs 'accepted'}} {{trs 'by'}} ?</p>
+                </label>
+                <hr class="mt-0">
+            </div>
+            <div class="form-group col-md-6 row">
+                <div class="form-group col-xl-6 col-lg-6  col-md-6 col-sm-3">
+                    <label for="vodacom_supported">
+                        {{trs 'accepts'}} vodacom
+                    </label>
+                    <input type="checkbox" onclick="changePermission(this);" value="0" name="vodacom_supported"
+                        id="vodacom_supported" data-switch="success" />
+                    <label for="vodacom_supported" data-on-label="{{trs 'Yes'}}" data-off-label="{{trs 'No'}}"></label>
+                </div>
+                <div class="form-group col-xl-6 col-lg-6  col-md-6 col-sm-3">
+                    <label for="tigo_supported">
+                        {{trs 'accepts'}} tigo-tz
+                    </label>
+                    <input type="checkbox" onclick="changePermission(this);" value="0" name="tigo_supported"
+                        id="tigo_supported" data-switch="success" />
+                    <label for="tigo_supported" data-on-label="{{trs 'Yes'}}" data-off-label="{{trs 'No'}}"></label>
+                </div>
+                <div class="form-group col-xl-6 col-lg-6  col-md-6 col-sm-3">
+                    <label for="admin">
+                        {{trs 'accepts'}} safari-com
+                    </label>
+                    <input type="checkbox" onclick="changePermission(this);" value="0" name="safaricom_supported"
+                        id="safaricom_supported" data-switch="success" />
+                    <label for="safaricom_supported" data-on-label="{{trs 'Yes'}}"
+                        data-off-label="{{trs 'No'}}"></label>
+                </div>
+            </div>
+            <div class="vl"></div>
+            <div class="form-group col-md-6 row">
+                <div class="form-group col-xl-6 col-lg-4  col-md-4 col-sm-3">
+                    <label for="airtel_supported">
+                        {{trs 'accepts'}} airtel-tz
+                    </label>
+                    <input type="checkbox" onclick="changePermission(this);" value="0" name="airtel_supported"
+                        id="airtel_supported" data-switch="success" />
+                    <label for="airtel_supported" data-on-label="{{trs 'Yes'}}" data-off-label="{{trs 'No'}}"></label>
+                </div>
+                <div class="form-group col-xl-6 col-lg-4  col-md-4 col-sm-3">
+                    <label for="stripe_supported">
+                        {{trs 'accepts'}} stripe-international
+                    </label>
+                    <input type="checkbox" onclick="changePermission(this);" value="0" name="stripe_supported"
+                        id="stripe_supported" data-switch="success" />
+                    <label for="stripe_supported" data-on-label="{{trs 'Yes'}}" data-off-label="{{trs 'No'}}"></label>
+                </div>
+                <div class="form-group col-xl-6 col-lg-4  col-md-4 col-sm-3">
+                    <label for="paypal_supported">
+                        {{trs 'accepts'}} paypal-international
+                    </label>
+                    <input type="checkbox" onclick="changePermission(this);" value="0" name="paypal_supported"
+                        id="paypal_supported" data-switch="success" />
+                    <label for="paypal_supported" data-on-label="{{trs 'Yes'}}" data-off-label="{{trs 'No'}}"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group mt-2 col-md-6">
+            <button class="btn btn-block btn-primary" type="submit">
+                {{trs 'create'}} {{trs 'currency'}}
+            </button>
+        </div>
+        <div class="form-group mt-2 col-md-6">
+            <button class="btn btn-block btn-secondary" type="reset" data-dismiss="modal">
+                cancel
+            </button>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllCurrencies);
+    });
+</script>

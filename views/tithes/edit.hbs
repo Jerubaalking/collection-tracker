@@ -1,0 +1,56 @@
+<form method="POST" class="d-block ajaxForm" action="/tithes/save" enctype="multipart/form-data">
+    {{!-- {{user_id}} --}}
+    <div class="form-row">
+        {{!-- <div class="form-group col-md-12">
+            <label for="tithe_number">{{translate "tithe number"}}</label>
+            <input type="text" value="{{translate " Hidden! Can not be changed"}}" disabled style="color: green;"
+                class="form-control" placeholder="{{translate " tithe number"}}">
+        </div> --}}
+        <div class="form-group col-md-12">
+            <input type="hidden" name="id" value="{{tithe.id}}" id="id">
+            <label for="amount">{{translate "amount"}}</label>
+            <input type="text" class="form-control" value="{{Tithes.amount}}" id="amount" placeholder="amount"
+                name="amount">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="methodId">{{translate "payment method"}}</label>
+            <select name="methodId" class="form-control" id="methodId">
+                <option value="">{{translate "select method"}}</option>
+                {{#each Methods}}
+                {{#ifEquals id ../Tithes.transaction.methodId}}
+                <option value="{{id}}" selected> {{name}} - {{company}}</option>
+                {{else}}
+                <option value="{{id}}"> {{name}} - {{company}}</option>
+                {{/ifEquals}}
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="receipt">{{translate "receipt"}}</label>
+            <input type="text" value="{{Tithes.transaction.receipt}}" class="form-control" id="receipt"
+                placeholder="receipt" name="receipt">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="date">{{translate "date"}}</label>
+            <input type="date" value="{{setDate Tithes.transaction.date}}" class="form-control" id="date"
+                placeholder="date" name="date">
+        </div>
+
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">add tithe</button>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    $(document).ready(function () {
+        initSelect2(['#methodId']);
+    });
+    $(".ajaxForm").validate({});
+    $(".ajaxForm").submit(function (e) {
+        e.preventDefault();
+        let form = $(this);
+        ajaxSubmit(e, form, "POST", showAllTithes);
+    });
+</script>

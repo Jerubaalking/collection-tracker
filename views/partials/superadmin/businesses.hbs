@@ -1,0 +1,71 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr>
+            <th>{{trs 'Name'}}</th>
+            <th>TIN</th>
+            <th>{{trs 'Stores'}}</th>
+            <th>{{trs 'Employees'}}</th>
+            <th>{{trs 'Status'}}</th>
+            <th>{{trs 'action'}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each businesses}}
+        <tr>
+            <td>
+                {{name}}
+            </td>
+            <td>
+                {{!--
+                <?php
+                    $class = $this->crud_model->get_classes($invoice['class_id'])->row_array();
+                    echo $class['name'];
+                 ?> --}}
+                {{tin}}
+            </td>
+            <td>
+                {{!--
+                <?php echo  currency($invoice['total_amount']) ; ?> --}}
+                {{store_count}}
+            </td>
+            <td>
+                {{!--
+                <?php echo  currency($invoice['paid_amount']) ; ?> --}}
+                {{employee_count}}
+            </td>
+            <td>
+                {{status}}
+            </td>
+            <td>
+                <a href="#" onclick="loadBusinessPage(this, '{{id}}')" class="btn btn-info">Enter</a>
+            </td>
+        </tr>
+        {{!--
+        <?php endforeach; ?> --}}
+        {{/each}}
+    </tbody>
+</table>
+<script type="text/javascript">
+    function loadBusinessPage(context, id) {
+        $.ajax({
+            url: '/superadmin/enter',
+            method: 'POST',
+            data: { businessId: id.toString() },
+            success: (response) => {
+                //console.log(response);
+                if (response.status) {
+                    window.location.href = response.linking;
+                }
+            }
+        })
+    }
+    function setLocalStorage(name, body) {
+        return localStorage.setItem(name, body);
+    }
+    function getLocalStorage(key) {
+        return localStorage.getItem(key);
+    }
+    function removeLocalStorage(key) {
+        return localStorage.removeItem(key);
+    }
+</script>

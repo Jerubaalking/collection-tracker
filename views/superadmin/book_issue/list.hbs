@@ -1,0 +1,63 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead class="thead-dark">
+        <tr>
+            <th>book name</th>
+            <th>issue date</th>
+            <th>student</th>
+            <th>class</th>
+            <th>status</th>
+            <th>options</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each book_issues}}
+        <tr>
+            <td>{{book.name}}</td>
+            <td>
+                {{setDate issue_date}}
+            </td>
+            <td>
+                {{student.user.name}}<br> <small style="font-size: 10px; color: #9E9E9E;">
+                    code: {{student.code}}
+                </small>
+            </td>
+            <td>{{class.name}}
+            </td>
+            <td>
+                {{#ifEquals status 1}}
+                <i class="mdi mdi-circle text-success"></i>
+                {{else}}
+                <i class="mdi mdi-circle text-disable"></i>
+                {{/ifEquals}}
+            </td>
+            <td>
+                <div class="dropdown text-center">
+                    <button type="button"
+                        class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+                        data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+
+                        {{#ifEquals status 1}}
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="rightModal('/books/issue/edit/{{id}}', 'update book issue information');">
+                            edit
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="confirmModal('/books/issue/return/{{id}}', showAllBookIssues )">
+                            return this book
+                        </a>
+                        {{/ifEquals}}
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                            onclick="confirmModal('/books/issue/delete/{{id}}', showAllBookIssues )">
+                            delete
+                        </a>
+
+                    </div>
+                </div>
+            </td>
+        </tr>{{/each}}
+    </tbody>
+</table>

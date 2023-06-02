@@ -1,0 +1,26 @@
+{{#each churches}}
+<div class="col-lg-6">
+  <div class="card widget-flat" id="student" style="on">
+    <div class="card-body">
+      <div class="float-right">
+        <i class="mdi mdi-account-multiple widget-icon"></i>
+      </div>
+      <h5 class="text-muted font-weight-normal mt-0" title="Number of Student"> <i
+          class="mdi mdi-account-group title_icon"></i> {{region.name}}<a href="/members"
+          style="color: #6c757d; display: none;" id="student_list"><i class="mdi mdi-export"></i></a></h5>
+      <h3 class="mt-3 mb-3">
+        {{name}}
+      </h3>
+      <p class="mb-0 text-muted">
+        <span class="text-nowrap">{{email}}</span><br>
+        <span class="text-nowrap">{{phone}}</span>
+      </p>
+      <div class="float-right">
+        <a title="enter" href="/home?id={{id}}" class="btn btn-medium btn-light">
+          <i class="dripicons-return text-success"></i>
+        </a>
+      </div>
+    </div> <!-- end card-body-->
+  </div> <!-- end card-->
+</div> <!-- end col-->
+{{/each}}

@@ -1,0 +1,52 @@
+<!--title-->
+<div class="row ">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="page-title">
+          <i class="mdi mdi-calendar-range title_icon"></i> sessions
+          <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle"
+            onclick="rightModal('/sessions/create', 'create new session')"> <i class="mdi mdi-plus"></i>
+            add session
+          </button>
+        </h4>
+      </div> <!-- end card body-->
+    </div> <!-- end card -->
+  </div><!-- end col-->
+</div>
+<div class="row session_content">
+</div>
+
+
+<script>
+  function makeSessionActive() {
+    var session_id = $('#session_dropdown').val();
+    var url = '/sessions/activate/' + session_id
+    $.ajax({
+      type: 'POST',
+      url: url,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        (response.status === true) ? toastr.success(response.notification) : toastr.error(response.notification);
+        location.reload();
+      }
+    });
+  }
+
+  var showAllSessions = function () {
+    var url = '/sessions/list';
+    console.log(url);
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        $('.session_content').html(response);
+        initDataTable('basic-datatable');
+        initSelect2(['#session_dropdown']);
+      }
+    });
+  }
+  showAllSessions()
+</script>

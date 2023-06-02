@@ -1,0 +1,132 @@
+<div class="row justify-content-md-center">
+    <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">update profile</h4>
+                <form method="POST" class="col-12 profileAjaxForm" action="/profile/edit/{{profile.id}}"
+                    id="profileAjaxForm" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label" for="name"> {{profile.name}}</label>
+                            <div class="col-md-9">
+                                <input type="text" id="name" name="name" class="form-control" value="{{profile.name}}"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label" for="email">
+                                {{profile.name}}
+                            </label>
+                            <div class="col-md-9">
+                                <input type="email" id="email" name="email" class="form-control"
+                                    value="{{profile.email}}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label" for="phone">
+                                phone
+                            </label>
+                            <div class="col-md-9">
+                                <input type="text" id="phone" name="phone" class="form-control"
+                                    value="{{profile.phone}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label" for="address">
+                                {{profile.address}}
+                            </label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" id="address" name="address"
+                                    rows="5">{{profile.address}}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label" for="example-fileinput">
+                                profile image
+                            </label>
+                            <div class="col-md-9 custom-file-upload">
+                                <div class="wrapper-image-preview" style="margin-left: -6px;">
+                                    <div class="box" style="width: 250px;">
+                                        <div class="js--image-preview"
+                                            style="background-image: url(/public/uploads/images/users/{{kaimage profile.name}}.jpg); background-color: #F5F5F5;">
+                                        </div>
+                                        <div class="upload-options">
+                                            <label for="profile_image" class="btn"> <i class="mdi mdi-camera"></i>
+                                                upload image
+                                            </label>
+                                            <input id="profile_image" style="visibility:hidden;" type="file"
+                                                class="image-upload" name="profile_image" accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-secondary col-xl-4 col-lg-4 col-md-12 col-sm-12"
+                                onclick="updateProfileInfo()">
+                                update profile
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div>
+
+    <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">change password
+                </h4>
+                <form method="POST" class="col-12 changePasswordAjaxForm" action="/profile/edit/{{profile.id}}"
+                    id="changePasswordAjaxForm" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label" for="current_password">
+                                current password
+                            </label>
+                            <div class="col-md-9">
+                                <input type="password" id="current_password" name="current_password"
+                                    class="form-control" value="" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label" for="new_password">
+                                new password
+                            </label>
+                            <div class="col-md-9">
+                                <input type="password" id="new_password" name="password" class="form-control"
+                                    value="" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label" for="confirm_password">
+                                confirm password
+                            </label>
+                            <div class="col-md-9">
+                                <input type="password" id="confirm_password" name="confirm_password"
+                                    class="form-control" value="" required>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-secondary col-xl-4 col-lg-4 col-md-12 col-sm-12"
+                                onclick="changePassword()">
+                                change password
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div>
+</div>

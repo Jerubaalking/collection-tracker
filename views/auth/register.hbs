@@ -1,0 +1,97 @@
+<div class="auth-fluid">
+    <!--Auth fluid left content -->
+    <div class="auth-fluid-form-box">
+        <div class="align-items-center d-flex h-100">
+            <div class="card-body">
+                <!-- Logo -->
+                <div class="text-center text-lg-left mb-3">
+                    <a href="/">
+                        <span><img src="{{cdn}}/icons/LogoC@300x.png" alt="" height=" 35"></span>
+                    </a>
+                </div>
+                <!-- title-->
+                <h4 class="mt-0">signup</h4>
+                <p class="text-muted mb-4">register as new user</p>
+
+                <p class="text-muted mb-4">{{message}}.</p>
+                <!-- form -->
+                <form action="/auth" method="post" id="regForm">
+                    {{!-- <div class="form-group">
+                        <label for="business_id">Select Business</label>
+                        <select class="form-control select2" name="business_id" id="business_id">
+                            <option>select business</option>
+                            {{#each businesses}}
+                            <option selected value="{{id}}">{{business}}</option>
+                            {{/each}}
+                        </select>
+                    </div> --}}
+                    <div class="form-group">
+                        <label for="name">fullname</label>
+                        <input class="form-control" type="text" name="name" id="name" required=""
+                            placeholder="enter your firstname">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailaddress">email</label>
+                        <input class="form-control" type="email" name="email" id="email" required=""
+                            placeholder=" enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">password</label>
+                        <input class="form-control" type="password" name="password" required="" id="password"
+                            placeholder=" enter your password">
+                        <span class="text-danger" id="error_message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">phone</label>
+                        <input class="form-control" type="phone" name="phone" id="phone" required=""
+                            placeholder=" enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">gender</label>
+                        <select class="form-control" name="gender" id="gender">
+                            <option value="Male">male</option>
+                            <option value="Female">female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessId">select business</label>
+                        <select class="form-control" name="businessId" id="businessId">
+                            {{#each business}}
+                            <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group mb-0 text-center">
+                        <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>
+                            register </button>
+                    </div>
+                </form>
+
+                <form action="#" method="post" id="forgotForm" style="display: none;">
+                    <div class="form-group">
+                        <a href="javascript: void(0);" class="text-muted float-right"
+                            onclick="backToLogin();"><small>back to login</small></a>
+                        <label for="forgotEmail">Email</label>
+                        <input class="form-control" type="email" name="email" required="" id="forgotEmail"
+                            placeholder="Enter your email">
+                    </div>
+                    <div class="form-group mb-0 text-center">
+                        <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i>sent
+                            password reset link</button>
+                    </div>
+                </form>
+                <!-- end form-->
+            </div> <!-- end .card-body -->
+        </div> <!-- end .align-items-center.d-flex.h-100-->
+    </div>
+    <!-- end auth-fluid-form-box-->
+
+    <!-- Auth fluid right content -->
+    <!-- end Auth fluid right content -->
+</div>
+<!-- end auth-fluid-->
+<script>
+    $(document).ready(function () {
+        initSelect2(["#gender"]);
+    });
+</script>

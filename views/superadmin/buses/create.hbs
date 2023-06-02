@@ -1,0 +1,62 @@
+<form method="POST" class="d-block ajaxForm" action="/buses/routes/create">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="name">name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            <small id="name_help" class="form-text text-muted">provide route name</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="roads">route</label>
+            <input type="text" class="form-control" id="roads" name="roads" required>
+            <small id="name_help" class="form-text text-muted">fill route road</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="route-start">
+                route start
+            </label>
+            <input type="text" class="form-control" id="route_start" name="route_start" required>
+            <small id="name_help" class="form-text text-muted">
+                Where route start
+            </small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="route_end">
+                route end
+            </label>
+            <input type="text" class="form-control" id="route_end" name="route_end" required>
+            <small id="name_help" class="form-text text-muted">
+                where route ends
+            </small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="vehicleId">vehicles
+            </label>
+            <select name="vehicleId" id="vehicleId" class="form-control select2" data-toggle="select2" required>
+                <option value="">
+                    assign a vehicle
+                </option>
+                {{#each vehicles}}
+                <option value="{{id}}">
+                    {{registration}}
+                </option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">
+                add bus route
+            </button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $('document').ready(function () {
+        initSelect2(['#vehicleId']);
+    });
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllRoutes);
+    });
+</script>

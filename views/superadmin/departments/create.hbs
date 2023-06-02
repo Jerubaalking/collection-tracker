@@ -1,0 +1,51 @@
+<form method="POST" class="d-block ajaxForm" action="/departments/create">
+    <div class="form-row">
+        {{!-- <input type="hidden" name="school_id" value=""> --}}
+        <div class="form-group col-md-12">
+            <label for="name">Department name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            <small id="name_help" class="form-text text-muted">provide name</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="purpose">Department purpose</label>
+            <input type="text" class="form-control" id="purpose" name="purpose" required>
+            <small id="purpose_help" class="form-text text-muted">provide purpose</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="department">
+                store
+            </label>
+            <select name="storeId" id="store" class="form-control select2" data-toggle="select2" required>
+                <option value="">select a store
+                </option>
+                {{#each stores}}
+                <option value="{{id}}">
+                    {{name}}
+                </option>
+                {{/each}}
+            </select>
+            <small id="" class="form-text text-muted">
+                provide store to assign department
+            </small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="comments">Department comment</label>
+            <textarea class="form-control" id="comments" name="comments" placeholder="comment...." required></textarea>
+            <small id="comment_help" class="form-text text-muted">provide comment</small>
+        </div>
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">
+                create department
+            </button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllDepartments);
+    });
+</script>

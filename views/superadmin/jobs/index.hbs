@@ -1,0 +1,49 @@
+<!--title-->
+<script src="{{cdn}}/js/select2.min.js"></script>
+<div class="row ">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="page-title">
+                    <i class="mdi mdi-cog text-info title_icon"></i> {{trs 'jobs'}}
+                    <button type="button" class="btn btn-outline-info btn-rounded alignToTitle"
+                        onclick="largeModal('/jobs/create', ' {{trs " create"}} {{trs "job"
+                        }}', 'mdi mdi-account-plus text-info' )">
+                        <span style="font-size: medium;"><i class="mdi mdi-plus"></i> {{trs 'create'}} {{trs
+                            'job'}}</span>
+                    </button>
+                </h4>
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body job_content">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(() => {
+        showAllJobs();
+    });
+
+    var showAllJobs = function () {
+        var url = '/jobs/list';
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (response) {
+                //console.log('response', response)
+                $('.job_content').html(response);
+                initDataTable('basic-datatable');
+            }
+        });
+    }
+</script>

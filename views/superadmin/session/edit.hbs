@@ -1,0 +1,27 @@
+<form method="POST" class="d-block ajaxForm" action="sessions/edit/{{session.id}}">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="name">
+                session title
+            </label>
+            <input type="text" class="form-control" value="{{session.name}}" id="name" name="name" required>
+            <small id="name_help" class="form-text text-muted">
+                provide session title
+            </small>
+        </div>
+
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">
+                update session
+            </button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllSessions);
+    });
+</script>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="{{locale}}">
+
+<head>
+    <!-- all the meta tags -->
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{{cdn}}/icons/IconC@300x.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{#ifEquals viewManager.theme 'dark'}}
+    {{> includes_top_dark}}
+    {{else}}
+    {{> includes_top}}
+    {{/ifEquals}}
+
+    <title id="mainTitle">{{viewManager.business_name}} | {{trs 'Home'}}</title>
+    <!-- all the css files -->
+</head>
+
+<body data-layout="detached">
+    <!-- HEADER -->
+    {{>header}}
+    <div class="container-fluid">
+        <div class="wrapper">
+            <!-- BEGIN CONTENT -->
+            <!-- SIDEBAR -->
+            {{> navigation}}
+
+            <!-- PAGE CONTAINER-->
+            <div class="content-page">
+                <div class="content content-main">
+                    <div class="loadings hidden"></div>
+                    <!-- BEGIN PlACE PAGE CONTENT HERE -->
+                    <div class="content_holder">
+                        {{{body}}}
+                    </div>
+                    <!-- END PLACE PAGE CONTENT HERE -->
+                </div>
+                <!-- Footer -->
+                {{>footer}}
+            </div>
+            <!-- END CONTENT -->
+        </div>
+    </div>
+    <!-- all the js files -->
+    {{>includes_bottom}}
+    {{>notify}}
+    {{>modals}}
+    <script>
+        /**
+        handling navigation using localstorage to store navigation cache
+        **/
+        $(document).ready(() => {
+
+            (localStorage.getItem('displayName')) ? localStorage.getItem('displayName') : localStorage.setItem('displayName', 'Home');
+            (localStorage.getItem('mainDisplayName')) ? localStorage.getItem('mainDisplayName') : localStorage.setItem('mainDisplayName', 'Dashboard');
+            (localStorage.getItem('prevMainDisplayName')) ? null : localStorage.setItem('prevMainDisplayName', '');
+            let currentRoute = location.pathname;
+            (localStorage.getItem('prevRoute')) ? null : localStorage.setItem('prevRoute', currentRoute);
+            (localStorage.getItem('currentRoute')) ? null : localStorage.setItem('currentRoute', currentRoute);
+            loadPage(localStorage.getItem('currentRoute'), localStorage.getItem('displayName'), localStorage.getItem('displayName'), localStorage.getItem('mainDisplayName'));
+        });
+
+        null
+        var oldroute = "Dashboard";
+        var oldrouteIn = "Home";
+        function loadPage(route, name, title, item) {
+            //location.pathname = route;
+            let currentRoute2 = location.pathname;
+            localStorage.setItem('prevRoute', currentRoute2);
+            localStorage.setItem('currentRoute', route);
+            if (typeof name == 'string' && parseInt(name) == NaN) {
+                $.ajax({
+                    url: route,
+                    success: (data) => {
+                        $('.content_holder').html('');
+                        $('.content_holder').html(data);
+                        $('#mainTitle').html('{{viewManager.business_name}} | ' + title);
+                    }
+                })
+            } else {
+                $.ajax({
+                    url: route,
+                    success: (data) => {
+                        $('.content_holder').html('');
+                        $('.content_holder').html(data);
+                        $('#mainTitle').html('{{viewManager.business_name}} | ' + name);
+                    }
+                })
+            }
+
+            $('#' + localStorage.getItem('mainDisplayName') + '-main-a').removeClass('active');
+            $('#' + localStorage.getItem('mainDisplayName') + '-main-ul').removeClass('in');
+            $('#' + localStorage.getItem('displayName') + '-small-li').removeClass('active');
+            $('#' + localStorage.getItem('displayName') + '-small-a').removeClass('active');
+
+            (localStorage.getItem('mainDisplayName') == item) ? null : localStorage.setItem('prevMainDisplayName', localStorage.getItem('mainDisplayName'));
+            localStorage.setItem('prevDisplayName', localStorage.getItem('displayName'));
+            localStorage.setItem('displayName', name);
+            localStorage.setItem('mainDisplayName', item);
+            $('#' + localStorage.getItem('mainDisplayName') + '-main-a').addClass('active');
+            $('#' + localStorage.getItem('mainDisplayName') + '-main-ul').addClass('in');
+            $('#' + localStorage.getItem('displayName') + '-small-li').addClass('active');
+            $('#' + localStorage.getItem('displayName') + '-small-a').addClass('active');
+
+        }
+        function changeLanguage(code) {
+            $.ajax({
+                url: "/translate/language/change/" + code,
+                success: (data) => {
+                    if (data.status) {
+                        location.reload();
+                    }
+                }
+            });
+        }
+        getInLanguageList();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!-- start page title -->
+<div class="row ">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="page-title">
+          <i class="mdi mdi-library title_icon"></i> Books Issue
+          <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle"
+            onclick="rightModal('/books/issue/create', 'issue book')"> <i class="mdi mdi-plus"></i> issue book</button>
+        </h4>
+      </div> <!-- end card body-->
+    </div> <!-- end card -->
+  </div><!-- end col-->
+</div>
+<!-- end page title -->
+
+<div class="row ">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="header-title mt-3">
+          issued books list
+        </h4>
+        <div class="row justify-content-md-center" style="margin-bottom: 10px;">
+          <div class="form-group col-xl-2 col-lg-2 col-md-6 col-sm-12 mb-3 mb-lg-0">
+            <input type="date" class="date form-control" id="startDate">
+          </div>
+          <strong>TO </strong>
+          <div class="form-group col-xl-2 col-lg-2 col-md-6 col-sm-12 mb-3 mb-lg-0">
+            <input type="date" class="date form-control" id="endDate">
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-3 mb-lg-0">
+            <button type="button" class="btn btn-icon btn-secondary form-control" onclick="showAllBookIssues()">
+              filter
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive-sm book_issue_content">
+
+        </div> <!-- end table-responsive-->
+      </div> <!-- end card body-->
+    </div> <!-- end card -->
+  </div><!-- end col-->
+</div>
+
+<script>
+  var st = new Date();
+  st.setDate(1);
+  st = st.toISOString().split('T')[0];
+  var ed = new Date();
+  ed.setDate(31);
+  ed = ed.toISOString().split('T')[0];
+  console.log(ed);
+  $('#startDate').val(st);
+  $('#endDate').val(ed)
+  var showAllBookIssues = function () {
+    var url = '/books/issue/list';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      data: { start: $('#startDate').val(), end: $('#endDate').val() },
+      success: function (response) {
+        $('.book_issue_content').html(response);
+        initDataTable("basic-datatable");
+      }
+    });
+  }
+</script>

@@ -1,0 +1,17 @@
+{{#each languages}}
+<!-- item-->
+{{#ifEquals abbreviation ../current}}
+<a href="#" class="dropdown-item notify-item" onclick="changeLanguage('{{abbreviation}}')">
+
+  <span class="badge badge-secondary-lighten text-success" style="font-size: small;">{{trs name}} <i
+      class="mdi mdi-hand-pointing-left text-success " style="font-size: large;"></i>
+  </span>
+</a>
+{{else}}
+<a href="#" class="dropdown-item notify-item" onclick="changeLanguage('{{abbreviation}}')">
+  <span style="font-size: small;">
+    {{trs name}}
+  </span>
+</a>
+{{/ifEquals}}
+{{/each}}

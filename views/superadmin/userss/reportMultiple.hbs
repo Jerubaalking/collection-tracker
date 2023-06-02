@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="http://localhost:5000/public/css/app.min.css">
+<style>
+    table {
+        font-size: 12px;
+    }
+</style>
+
+<div style="display: inline-block;">
+    <p id="top-left-conner"><span style="float: inline-start;">{{datetime}}</span> <span
+            style="float: inline-end;">{{time}}</span></p>
+</div>
+<div class="row" style="margin-top: 50px; ">
+    <div class="col-md-2">
+
+    </div>
+    <div class="table-responsive-sm col-md-8">
+        <h5 style="text-align: justify;">{{projects.0.church.name}} projects</h5>
+        <table id="basic-datatable" class="table table-bordered nowrap" width="100%">
+            <thead class="">
+                <tr>
+                    <th>Project</th>
+                    <th>Estimate</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Supervisor</th>
+                    <th>Treasurer</th>
+                    <th>Pledges</th>
+                    <th>Contribution</th>
+                    <th>progress</th>
+                    <th>Approval</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each projects}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{estimate}}</td>
+                    <td>{{setDate start_date}}</td>
+                    <td>{{setDate end_date}}</td>
+                    <td>{{supervisor.firstname}} {{supervisor.lastname}}</td>
+                    <td>{{treasurer.firstname}} {{treasurer.lastname}}</td>
+                    <td>{{total_pledges}}</td>
+                    <td>{{total_contributions}}</td>
+                    <td>{{progress}}%</td>
+                    <td>{{approval}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+
+</div>

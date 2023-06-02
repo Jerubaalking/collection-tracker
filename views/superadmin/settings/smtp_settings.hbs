@@ -1,0 +1,107 @@
+<div class="row justify-content-md-center">
+    <div class="col-xl-7 col-lg-7 col-md-10 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" class="col-12 smtpForm" action="/settings/smtp" id="smtpsettings">
+                    <div class="col-12">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label" for="mail_sender">MAIL sender</label>
+                            <div class="col-md-9">
+                                <select class="form-control select2" data-toggle="select2" name="mail_sender"
+                                    id="mail_sender" onchange="showHideSMTPCredentials(this.value)" required>
+                                    <option value="node_mailer" selected>Node Mailer</option>
+                                    <option value="generic_smtp">
+                                        Generic SMPT
+                                    </option>
+                                </select>
+                                <small class="text-muted selection_small">
+                                    provide smtp profile
+                                </small>
+                            </div>
+                        </div>
+                        <div class="show_settings">
+
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btnn btn-secondary col-xl-4 col-lg-6 col-md-12 col-sm-12"
+                                onclick="updateSmtpInfo()">
+                                update smtp settings
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var mail_sender = $('#mail_sender').val();
+    function showHideSMTPCredentials(mail_sender) {
+        if (mail_sender === "node_mailer") {
+            $.ajax({
+                url: '/settings/smtp/' + 'node_mailer',
+                method: 'POST',
+                success: (response) => {
+                    $("#php-mailer-visibility-div").slideDown();
+                    $('.show_settings').html(response);
+                }
+            });
+        } else {
+            $.ajax({
+                url: '/settings/smtp/' + 'generic_smtp',
+                method: 'POST',
+                success: (response) => {
+                    $('.show_settings').html(response);
+                    $("#php-mailer-visibility-div").slideUp();
+                }
+            });
+        }
+    }
+    function updateSmtpInfo() {
+        $(".smtpForm").validate({});
+        $(".smtpForm").submit(function (e) {
+            var form = $(this);
+            ajaxSubmit(e, form, 'POST', reload);
+        });
+    }
+
+    function reload() {
+        $('.btnn').addClass('collapse');
+        $('.selection_small').html('please wait .');
+        setTimeout(() => {
+            $('.selection_small').html('please wait ..');
+            setTimeout(() => {
+                $('.selection_small').html('please wait ...');
+                setTimeout(() => {
+                    $('.selection_small').html('please wait ....');
+
+                    setTimeout(() => {
+                        $('.selection_small').html('please wait ....');
+                        setTimeout(() => {
+                            $('.selection_small').html('please wait ...');
+                            setTimeout(() => {
+                                $('.selection_small').html('please wait ..');
+                                setTimeout(() => {
+                                    $('.selection_small').html('please wait .');
+                                }, 200);
+                            }, 200);
+                        }, 300);
+                    }, 300);
+                }, 300)
+            }, 400);
+        }, 400);
+
+
+        setTimeout(() => {
+            mail_sender = $('#mail_sender').val();
+            showHideSMTPCredentials(mail_sender);
+            $('.selection_small').html('Mailer agent');
+            $('.btnn').removeClass('collapse');
+        }, 2300)
+    }
+    reload();
+</script>

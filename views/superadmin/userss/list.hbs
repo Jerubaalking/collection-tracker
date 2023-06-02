@@ -1,0 +1,37 @@
+
+<div class="table-responsive-sm">
+    <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+      <thead class="thead-dark">
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>option</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each users}}
+            <tr>
+                <td>{{firstname}}</td>
+                <td>{{lastname}}</td>
+                <td>{{email}}</td>
+                <td>{{username}}</td>
+                
+            <td>
+              <div class="dropdown text-center">
+      					<button type="button" class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+      					<div class="dropdown-menu dropdown-menu-right">
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/users/roles/{{id}}', 'update roles');">roles</a>
+      						<!-- item-->
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/users/edit/{{id}}', 'update user');">edit</a>
+      						<!-- item-->
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/users/delete/{{id}}', showAllUsers )">delete</a>
+      					</div>
+      				</div>
+            </td>
+            </tr>
+          {{/each}}
+      </tbody>
+    </table>
+</div>

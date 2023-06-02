@@ -1,0 +1,43 @@
+<!--title-->
+<div class="row ">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="page-title">
+          <i class="mdi mdi-library-outline title_icon title_icon"></i> Classrooms
+          <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle"
+            onclick="rightModal('/classrooms/create', 'create classroom')">
+            <i class="mdi mdi-plus"></i>
+            add classroom
+          </button>
+        </h4>
+      </div> <!-- end card body-->
+    </div> <!-- end card -->
+  </div><!-- end col-->
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body class_room_content">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var showAllClassRooms = function () {
+    var url = '/classrooms/list';
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        $('.class_room_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+  showAllClassRooms();
+</script>

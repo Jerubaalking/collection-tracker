@@ -1,0 +1,99 @@
+<div class="form-group row mb-3">
+    <label class="col-md-3 col-form-label" for="smtp_protocol">SMTP Protocol
+    </label>
+    <div class="col-md-9">
+        <input type="text" id="smtp_protocol" name="smtp_protocol" class="form-control"
+            value="{{settings.smtp_protocol}}" required>
+        <small class="text-muted">
+            provide smtp protocol
+        </small>
+    </div>
+</div>
+
+<div class="form-group row mb-3">
+    <label class="col-md-3 col-form-label" for="smtp_host">SMTP Host
+    </label>
+    <div class="col-md-9">
+        <input type="text" id="smtp_host" name="smtp_host" class="form-control" value="{{settings.smtp_host}}" required>
+        <small class="text-muted">
+            provide smtp host eg: https://www.google.com/smtp
+        </small>
+    </div>
+</div>
+
+<div class="form-group row mb-3">
+    <label class="col-md-3 col-form-label" for="smtp_port">SMTP Port
+    </label>
+    <div class="col-md-9">
+        <input type="text" id="smtp_port" name="smtp_port" class="form-control" value="{{settings.smtp_port}}" required>
+
+        <small class="text-muted">
+            provide smtp port
+        </small>
+    </div>
+</div>
+<div class="form-group row mb-3">
+    <label class="col-md-3 col-form-label" for="smtp_username">SMTP Username
+    </label>
+    <div class="col-md-9">
+        <input type="text" id="smtp_username" name="smtp_username" class="form-control"
+            value="{{settings.smtp_username}}" required>
+
+        <small class="text-muted">
+            provide smtp username
+        </small>
+    </div>
+</div>
+<div class="form-group row mb-3">
+    <label class="col-md-3 col-form-label" for="smtp_password">SMTP Password
+    </label>
+    <div class="col-md-9">
+        <input type="text" id="smtp_password" name="smtp_password" class="form-control"
+            value="{{settings.smtp_password}}" required>
+
+        <small class="text-muted">
+            provide smtp password
+        </small>
+    </div>
+</div>
+<div id="php-mailer-visibility-div">
+    <div class="form-group row mb-3">
+        <label class="col-md-3 col-form-label" for="smtp_secure">SMTP Secure
+        </label>
+        <div class="col-md-9">
+            <input type="text" id="smtp_secure" name="smtp_secure" class="form-control"
+                value="{{settings.smtp_secure}}">
+
+            <small class="text-muted">provide smtp secure
+            </small>
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-md-3 col-form-label" for="smtp_set_from">SMTP set from
+        </label>
+        <div class="col-md-9">
+            <input type="text" id="smtp_set_from" name="smtp_set_from" class="form-control"
+                value="{{settings.smtp_set_from}}">
+            <small class="text-muted">
+                last time to set smpt
+            </small>
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-md-3 col-form-label" for="smtp_show_error">SMTP show error
+        </label>
+        <div class="col-md-9">
+            <select class="form-control select2" data-toggle="select2" name="smtp_show_error" id="smtp_show_error">
+                <option value="yes">
+                    show
+                </option>
+                <option value="no">
+                    do not show
+                </option>
+            </select>
+            <small class="text-muted">
+                Error will be shown if sending fails.
+            </small>
+        </div>
+    </div>
+</div>

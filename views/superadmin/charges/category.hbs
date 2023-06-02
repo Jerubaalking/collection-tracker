@@ -1,0 +1,169 @@
+<script src="{{cdn}}/js/select2.min.js"></script>
+<form method="POST" class="d-block ajaxForm" {{#if categories}} action="/charges/categories/create/{{charge.id}}"
+    {{else}}action="{{action}}" {{/if}} enctype="application/x-www-form-urlencoded">
+    <div class="form-row">
+
+
+        {{#if category}}
+        <div class="form-group col-md-6">
+            <label for="amount">
+                {{trs 'amount'}}
+            </label>
+            <input type="number" placeholder="{{trs 'amount'}}" value="{{category.amount}}" class="form-control"
+                id="amount" name="amount" required>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide category name'}}
+            </small>
+        </div>
+        <div class="col-md-6">
+            <label for="rates">Rates</label>
+            <div class="form-check form-group">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="hourly" name="rates" {{#ifEquals category.hourly
+                        1 }} checked {{else}} {{/ifEquals}}>{{trs 'hourly charges'}}
+                </label>
+            </div>
+            <div class="form-check form-group">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="daily" name="rates" {{#ifEquals category.daily 1
+                        }} checked {{else}} {{/ifEquals}}>{{trs 'daily charges'}}
+                </label>
+            </div>
+            <div class="form-check form-group">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="monthly" name="rates" {{#ifEquals
+                        category.monthly 1 }} checked {{else}} {{/ifEquals}}>{{trs 'monthly charges'}}
+                </label>
+            </div>
+        </div>
+        {{trs 'update'}} {{trs 'category'}}
+        {{/if}}
+
+        {{#if categories}}
+
+        <div class="form-group col-md-6">
+            <label for="categoryId">
+                {{trs 'category'}}
+            </label>
+            <select name="categoryId" id="categoryId" class="form-control select2" data-toggle="select2" required>
+                <option value="" disabled selected>select category
+                </option>
+                {{#each categories}}
+                <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <small id="" class="form-text text-muted">select category to attach to {{charge.name}} charges</small>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="amount">
+                {{trs 'amount'}}
+            </label>
+            <input type="number" placeholder="{{trs 'amount'}}" value="" class="form-control" id="amount" name="amount"
+                required>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide category name'}}
+            </small>
+        </div>
+        <div class="col-md-6">
+            <label for="rates">Rates</label>
+            <div class="form-check form-group">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="hourly" name="rates">{{trs 'hourly charges'}}
+                </label>
+            </div>
+            <div class="form-check form-group">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="daily" name="rates">{{trs 'daily charges'}}
+                </label>
+            </div>
+            <div class="form-check form-group">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="monthly" name="rates">{{trs 'monthly charges'}}
+                </label>
+            </div>
+        </div>
+        {{/if}}
+        {{#if charge_category}}
+        <div class="form-group col-md-6">
+            <label for="amount">
+                {{trs 'amount'}}
+            </label>
+            <input type="number" placeholder="{{trs 'amount'}}" value="{{money amount}}" class="form-control"
+                id="amount" name="amount" required>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide category name'}}
+            </small>
+        </div>
+        <div class="col-md-6">
+            <label for="rates">Rates</label>
+            <div class="form-check form-group">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="daily" name="rates">{{trs 'daily charges'}}
+                </label>
+            </div>
+            <div class="form-check form-group">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="weekly" name="rates">{{trs 'weekly charges'}}
+                </label>
+            </div>
+            <div class="form-check form-group">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="monthly" name="rates">{{trs 'monthly charges'}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="description">
+                {{trs 'description'}}
+            </label>
+            <textarea type="text" placeholder="{{trs 'description'}}" class="form-control" id="description"
+                name="description" required>{{category.description}}</textarea>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide category description'}}
+            </small>
+        </div>
+        {{/if}}
+
+        <div class="col-md-12 row">
+            <div class="form-group mt-2 col-md-6">
+                <button class="btn btn-block btn-info" type="submit">
+                    {{#if category}}
+                    {{trs 'update'}} {{trs 'category'}}
+                    {{/if}}
+                    {{#if categories}}
+                    {{trs 'add'}} {{trs 'category'}}{{trs 'to charges'}}
+                    {{else}}
+                    {{trs 'create'}} {{trs 'category'}}
+                    {{/if}}
+                </button>
+            </div>
+            <div class="form-group mt-2 col-md-6">
+                <button class="btn btn-block btn-secondary" type="reset" data-dismiss="modal">
+                    cancel
+                </button>
+            </div>
+        </div>
+
+    </div>
+</form>
+{{#if categories}}
+<script>
+    $('#categoryId').select2({
+        dropdownParent: $('#large-modal')
+    });
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllCharges);
+    });
+</script>
+{{else}}
+<script>
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllCategories);
+    });
+</script>
+{{/if}}

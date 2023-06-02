@@ -1,0 +1,107 @@
+<form method="POST" class="d-block ajaxForm" action="/books/issue/edit/{{book_issue.id}}">
+  <div class="form-group row mb-3">
+    <label class="col-md-3 col-form-label" for="issue_date">
+      issue date
+    </label>
+    <div class="col-md-9">
+      <input type="date" class="form-control date" id="issue_date" value="{{setDate book_issue.issue_date}}"
+        name="issue_date" value="" required>
+    </div>
+  </div>
+  <div class="form-group row mb-3">
+    <label class="col-md-3 col-form-label" for="classId">
+      class
+    </label>
+    <div class="col-md-9">
+      <select name="classId" id="classId_on_modal" class="form-control select2" data-toggle="select2" required
+        onchange="classWiseStudentOnCreate({{book_issue.classId}}, '{{book_issue.studentId}}')">
+        <option value="">
+          select a class
+        </option>
+        {{#each classes}}
+        {{#ifEquals id ../book_issue.classId}}
+        <option value="{{id}}" selected>
+          {{name}}
+        </option>
+        {{else}}
+        <option value="{{id}}">
+          {{name}}
+        </option>
+        {{/ifEquals}}
+        {{/each}}
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row mb-3">
+    <label class="col-md-3 col-form-label" for="studentId">
+      student
+    </label>
+    <div class="col-md-9" id="student_content">
+      <select name="studentId" id="studentId_on_modal" class="form-control select2" data-toggle="select2" required>
+        <option value="">
+          select student
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row mb-3">
+    <label class="col-md-3 col-form-label" for="bookId">
+      book
+    </label>
+    <div class="col-md-9">
+      <select name="bookId" id="bookId_on_modal" class="form-control" required>
+        <option value="">
+          select book
+        </option>{{#each books}}
+        {{#ifEquals id ../book_issue.bookId}}
+        <option value="{{id}}" selected>
+          {{name}}
+        </option>
+        {{else}}
+        <option value="{{id}}">
+          {{name}}
+        </option>
+        {{/ifEquals}}
+        {{/each}}
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group  col-md-12">
+    <button class="btn btn-block btn-primary" type="submit">
+      save book issue
+    </button>
+  </div>
+</form>
+
+<script>
+  $(document).ready(function () {
+    /** var ddt = ('{{book_issue.issue_date}}').split('T')[0];
+     ddt = ddt.split('-');
+     console.log(ddt);
+     $('#issue_date').val('');**/
+  });
+
+  $(".ajaxForm").validate({}); // Jquery form validation initialization
+  $(".ajaxForm").submit(function (e) {
+    var form = $(this);
+    ajaxSubmit(e, form, 'POST', showAllBookIssues);
+  });
+
+  $(document).ready(function () {
+    initSelect2(['#classId_on_modal', '#studentId_on_modal', '#bookId_on_modal']);
+  });
+
+  function classWiseStudentOnCreate(classId, selected) {
+    $.ajax({
+      url: "/students/class/" + classId,
+      data: { selected: selected },
+      success: function (response) {
+        $('#studentId_on_modal').html(response);
+      }
+    });
+  }
+  classWiseStudentOnCreate('{{book_issue.classId}}', '{{book_issue.studentId}}')
+</script>

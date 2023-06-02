@@ -1,0 +1,27 @@
+
+<input id="user" type="text" value="{{user}}" class="hidden">
+<table class="table table-striped">
+    <thead>
+        <th>Role</th>
+        <th>Active</th>
+    </thead>
+    <tbody>
+    {{#each roles}}
+    <tr>
+        <td>{{role}}</td>
+        <td>
+            {{#ifRowsValueExist ../user_roles role}}
+            <input type="checkbox" value="1" id="{{id}}1" data-switch="success" onchange="toggleRoles({{id}})" checked>
+            <label for="{{id}}1" data-on-label="Yes" data-off-label="No">
+            {{else}}
+            <input type="checkbox" value="0" id="{{id}}1" data-switch="success" onchange="toggleRoles({{id}})">
+            <label for="{{id}}1" data-on-label="Yes" data-off-label="No">
+            {{/ifRowsValueExist}}
+            
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
+
+            

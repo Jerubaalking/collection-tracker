@@ -1,0 +1,171 @@
+<script src="{{cdn}}/js/init.js"></script>
+<form method="POST" class="d-block ajaxForm" action="/users/edit/{{user.id}}">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="name">
+        {{trs 'name'}}
+      </label>
+      <input type="text" class="form-control" placeholder="fullname..." value="{{user.name}}" id="name" name="name"
+        required>
+      <small id="" class="form-text text-muted">
+        {{trs 'provide'}} {{trs 'fullname'}}
+      </small>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="email">
+        {{trs 'email'}}
+      </label>
+      <input type="email" class="form-control" placeholder="xyz@example.com" value="{{user.email}}" id="email"
+        name="email" required>
+      <small id="" class="form-text text-muted">
+        {{trs 'provide'}} {{trs 'email'}}
+      </small>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="phone">
+        {{trs 'phone'}} {{trs 'number'}}
+      </label>
+      <div id="phoneTray">
+        <input type="text" class="form-control" placeholder="255652123123" value="{{user.phone}}" id="phone"
+          name="phone" required>
+      </div>
+
+    </div>
+    <div class="form-group col-md-6">
+      <label for="password">
+        {{trs 'password'}}
+      </label>
+      <input type="password" class="form-control" placeholder="****" id="password" name="password">
+      <small id="" class="form-text text-muted">
+
+        {{trs 'provide'}} {{trs 'password'}}
+      </small>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="gender">
+        {{trs 'gender'}}
+      </label>
+      <select name="gender" id="gender" class="form-control select2" data-toggle="select2">
+        <option value="" disabled>
+          {{trs 'select'}} {{trs 'gender'}}
+        </option>
+        {{#ifEquals user.gender 'MALE'}}
+        <option value="MALE" selected>
+          {{trs 'male'}}
+        </option>
+        <option value="FEMALE">
+          {{trs 'female'}}
+        </option>
+        {{else}}
+        <option value="FEMALE" selected>
+          {{trs 'female'}}
+        </option>
+        <option value="MALE">
+          {{trs 'male'}}
+        </option>
+        {{/ifEquals}}
+      </select>
+      <small id="" class="form-text text-muted">
+
+        {{trs 'provide'}} {{trs 'gender'}}
+      </small>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="role">
+        {{trs 'role'}}
+      </label>
+      <select name="role" id="role" class="form-control select2" data-toggle="select2">
+        {{#ifEquals user.roles.0.role "superadmin"}}
+        {{#each roles}}
+        {{#ifEquals id ../user.roles.0.id}}
+        <option value="{{id}}" selected>
+          {{trs role}}
+        </option>
+        {{else}}
+        <option value="{{id}}" disabled>
+          {{trs role}}
+        </option>
+        {{/ifEquals}}
+        {{/each}}
+        {{else}}
+        {{#each roles}}
+        {{#ifEquals id ../user.roles.0.id}}
+        <option value="{{id}}" selected>
+          {{trs role}}
+        </option>
+        {{else}}
+        <option value="{{id}}">
+          {{trs role}}
+        </option>
+        {{/ifEquals}}
+        {{/each}}
+        {{/ifEquals}}
+      </select>
+      <small id="" class="form-text text-muted">
+
+        {{trs 'provide'}} {{trs 'role'}}
+      </small>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="address">
+        {{trs 'address'}} <a href="#" onclick="addAddress()" class="btn btn-sm btn-light"><i
+            class="mdi mdi-plus"></i></a>
+      </label>
+      <div id="addressTray">
+        <textarea class="form-control" placeholder="address..." id="address[]" name="address[]" rows="5"
+          required> {{user.address}}</textarea>
+        <small id="" class="form-text text-muted">
+          {{trs 'provide'}} {{trs 'address'}}
+        </small>
+        </textarea>
+      </div>
+    </div>
+    <div class="form-group row mb-2 col-md-6">
+      <label class="col-md-3 col-form-label" for="example-fileinput">
+        {{trs 'user'}} {{trs 'image'}}
+      </label>
+      <div class="col-md-9 custom-file-upload">
+        <div class="wrapper-image-preview" style="margin-left: -6px;">
+          <div class="box" style="width: 210px;">
+            <div class="js--image-preview"
+              style="background-image: url({{cdn}}/uploads/images/users/{{kaimage user.name}}_user_image_.png); background-color: #F5F5F5;">
+            </div>
+            <div class="upload-options">
+              <label for="user_image" class="btn"> <i class="mdi mdi-camera mr-1"></i> {{trs 'upload'}}
+                {{trs 'image'}}
+              </label>
+              <input id="user_image" style="visibility:hidden;" type="file" class="image-upload" name="user_image"
+                accept="image/png" onchange="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group mt-2 col-md-6">
+      <button class="btn btn-block btn-info" type="submit">
+        {{trs 'update'}} {{trs 'user'}}
+      </button>
+    </div>
+    <div class="form-group mt-2 col-md-6">
+      <button class="btn btn-block btn-secondary" type="reset" data-dismiss="modal">
+        cancel
+      </button>
+    </div>
+  </div>
+</form>
+
+<script>
+  $(document).ready(function () {
+    $('#gender').select2({
+      dropdownParent: $('#large-modal')
+    }); $('#role').select2({
+      dropdownParent: $('#large-modal')
+    });
+  });
+  $(".ajaxForm").validate({}); // Jquery form validation initialization
+  $(".ajaxForm").submit(function (e) {
+    var form = $(this);
+    ajaxSubmit(e, form, 'POST', showAllUsers);
+  });
+</script>

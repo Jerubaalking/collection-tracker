@@ -1,0 +1,124 @@
+<form method="POST" class="d-block ajaxForm responsive_media_query" action="/attendances/take_attendance"
+    style="min-width: 300px; max-width: 400px;" enctype="multipart/form-data">
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label for="date_on_taking_attendance">
+                date
+            </label>
+            <input type="text" class="form-control date" id="date_on_taking_attendance" data-toggle="date-picker"
+                data-single-date-picker="true" name="date" value="" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label for="classId_on_taking_attendance">
+                class
+            </label>
+            <select name="classId" id="classId_on_taking_attendance" class="form-control select2" data-toggle="select2"
+                onchange="classWiseSectionOnTakingAttendance(this.value)" required>
+                <option value="">
+                    select a class
+                </option>
+                {{#each classes}}
+                <option value="{{id}}">
+                    {{name}}
+                </option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12" id="section_content_2">
+            <label for="sectionId_on_taking_attendance">
+                sections
+            </label>
+            <select name="sectionId" id="sectionId_on_taking_attendance" class="form-control select2"
+                data-toggle="select2" required>
+                <option value="">select sections
+                </option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="row" id="student_content" style="margin-left: 2px;">
+    </div>
+
+    <div class='row'>
+        <div class="form-group col-md-12" id="showStudentDiv">
+            <a class="btn btn-block btn-secondary" onclick="getStudentList()" style="color: #fff;" disabled>
+                show student list
+            </a>
+        </div>
+    </div>
+    <div class="form-group col-md-12 mt-4" id="updateAttendanceDiv" style="display: none;">
+        <button class="btn w-100 btn-primary" type="submit">
+            update attendances
+        </button>
+    </div>
+</form>
+
+<script>
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+
+        ajaxSubmit(e, form, 'POST', getDailtyAttendance);
+    });
+
+    $('document').ready(function () {
+        initSelect2(['#classId_on_taking_attendance', '#sectionId_on_taking_attendance']);
+
+        $('#date_on_taking_attendance').change(function () {
+            $('#showStudentDiv').show();
+            $('#updateAttendanceDiv').hide();
+            $('#student_content').hide();
+        });
+        $('#classId_on_taking_attendance').change(function () {
+            $('#showStudentDiv').show();
+            $('#updateAttendanceDiv').hide();
+            $('#student_content').hide();
+        });
+        $('#sectionId_on_taking_attendance').change(function () {
+            $('#showStudentDiv').show();
+            $('#updateAttendanceDiv').hide();
+            $('#student_content').hide();
+        });
+    });
+
+    $('#date_on_taking_attendance').daterangepicker();
+
+    function classWiseSectionOnTakingAttendance(classId) {
+        $.ajax({
+            url: "/sections/list/class/" + classId,
+            success: function (response) {
+                $('#sectionId_on_taking_attendance').html(response);
+            }
+        });
+    }
+
+    function getStudentList() {
+        var date = $('#date_on_taking_attendance').val();
+        var classId = $('#classId_on_taking_attendance').val();
+        var sectionId = $('#sectionId_on_taking_attendance').val();
+
+        if (date != '' && classId != '' && sectionId != '') {
+            $.ajax({
+                type: 'POST',
+                url: '/attendances/students',
+                data: { date: date, classId: classId, sectionId: sectionId },
+                success: function (response) {
+                    console.log('am here student!!!', response);
+                    $('#student_content').show();
+                    $('#student_content').html(response);
+                    $('#showStudentDiv').hide();
+                    $('#updateAttendanceDiv').show();
+                }
+            });
+        } else {
+            toastr.error('please select in all fields!');
+        }
+    }
+</script>

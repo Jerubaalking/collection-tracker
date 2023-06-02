@@ -1,0 +1,60 @@
+<!--title-->
+<script src="{{cdn}}/js/select2.min.js"></script>
+<div class="row ">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="page-title">
+          <i class="mdi mdi-account-child-circle text-info title_icon"></i> {{trs 'all employers'}}
+          <button type="button" class="btn btn-outline-info btn-rounded alignToTitle"
+            onclick="largeModal('/employers/create', ' {{trs " create"}} {{trs "employer"
+            }}', 'mdi mdi-account-plus text-info' )">
+            <span style="font-size: medium;"><i class="mdi mdi-plus"></i> {{trs 'create'}} {{trs 'employer'}}</span>
+          </button>
+        </h4>
+      </div> <!-- end card body-->
+    </div> <!-- end card -->
+  </div><!-- end col-->
+</div>
+
+<div class="row">
+  <div class="col-md-12 ml-3">
+    <div class="user_content">
+      {{!-- <div class="card-body user_content">
+      </div> --}}
+    </div>
+  </div>
+</div>
+
+<script>
+  var addAddress = () => {
+    $('#addressTray').append(`<textarea class="form-control" id="address[]" name="address[]" rows="5" required></textarea>
+                <small id="" class="form-text text-muted">
+                   {{trs 'provide'}} {{trs 'address'}}
+                </small>`)
+  }
+  var addPhone = () => {
+    $('#phoneTray').append(`
+                <input type="text" class="form-control" id="phone[]" name="phone[]" required>
+                <small id="" class="form-text text-muted">
+                    {{trs 'provide'}} {{trs 'phone'}} {{trs 'number'}}
+                </small>`);
+  }
+  $(document).ready(() => {
+    showAllEmployers();
+  });
+
+  var showAllEmployers = function () {
+    var url = '/employers/list';
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        console.log('response', response)
+        $('.user_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+</script>

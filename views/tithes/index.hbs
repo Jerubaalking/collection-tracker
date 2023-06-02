@@ -1,0 +1,49 @@
+<!-- start page title -->
+<div class="row ">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="page-title">
+                    Tithe <small><i class="mdi mdi-lock title_icon" style="color: green; font-size:x-small;"></i>
+                        secure</small> {{title}}
+                    <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle"
+                        onclick="rightModal('/tithes/create', 'add tithe')"> <i class="mdi mdi-plus"></i> add
+                        tithe</button>
+                </h4>
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>
+<!-- end page title -->
+<div class="row ">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="tithe_content">
+
+                </div> <!-- end table-responsive-->
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        //alert('books');
+        showAllTithes();
+    });
+    var showAllTithes = function () {
+        var url = '/tithes/list';
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (response) {
+                //alert(response[0]['author']);
+                $('.tithe_content').html(response);
+                initDataTable('basic-datatable');
+            }
+        });
+    }
+
+</script>

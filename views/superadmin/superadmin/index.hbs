@@ -1,0 +1,45 @@
+<!--title-->
+<div class="row ">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="page-title">
+          <i class="mdi mdi-account-supervisor-circle title_icon text-info"></i> All Super-Admins
+          <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle"
+            onclick="rightModal('/superadmin/create', 'create super-admin')"> <i class="mdi mdi-plus"></i>
+            create superadmin
+          </button>
+        </h4>
+      </div> <!-- end card body-->
+    </div> <!-- end card -->
+  </div><!-- end col-->
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body superadmin_content">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  $(document).ready(() => {
+    showAllAdmins();
+  });
+  var showAllAdmins = function () {
+    var url = '/superadmin/list';
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        console.log('response', response)
+        $('.superadmin_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+</script>

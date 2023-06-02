@@ -1,0 +1,36 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+	<thead>
+		<tr style="background-color: #313a46; color: #ababab;">
+			<th>name</th>
+			<th>purpose</th>
+			<th>store</th>
+			<th>comment</th>
+			<th>options</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each departments}}
+		<tr>
+			<td>{{name}}</td>
+			<td>{{purpose}}</td>
+			<td>{{store.name}}</td>
+			<td>{{comments}}</td>
+			<td>
+				<div class="dropdown text-center">
+					<button type="button"
+						class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop"
+						data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+					<div class="dropdown-menu dropdown-menu-right">
+						<!-- item-->
+						<a href="javascript:void(0);" class="dropdown-item"
+							onclick="rightModal('/departments/edit/{{id}}', 'Update Department');">edit</a>
+						<!-- item-->
+						<a href="javascript:void(0);" class="dropdown-item"
+							onclick="confirmModal('/departments/delete/{{id}}', showAllDepartments)">delete</a>
+					</div>
+				</div>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

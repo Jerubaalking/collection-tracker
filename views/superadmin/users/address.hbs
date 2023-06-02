@@ -1,0 +1,57 @@
+<form method="POST" class="d-block ajaxForm" action="{{action}}">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="address">
+                {{trs 'address'}}
+                {{!-- <a href="#" onclick="addAddress()" class="btn btn-sm btn-light"><i class="mdi mdi-plus"></i></a>
+                --}}
+            </label>
+            <div id="addressTray">
+                <textarea class="form-control" placeholder="address...." id="address" name="address" rows="5"
+                    required>{{user.addresses.0.address}}</textarea>
+                <small id="" class="form-text text-muted">
+                    {{trs 'provide'}} {{trs 'address'}}
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="regionId">
+                {{trs 'region'}}
+            </label>
+            <select name="regionId" id="regionId" class="form-control select2" data-toggle="select2">
+                <option value="" disabled selected>select region
+                </option>
+                {{#each regions}}
+                {{#ifEquals id ../user.addresses.0.region.id}}
+                <option value="{{id}}" selected>{{name}}</option>
+                {{else}}
+                <option value="{{id}}">{{name}}</option>
+                {{/ifEquals}}
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group mt-2 col-md-6">
+            <button class="btn btn-block btn-info" type="submit">
+                <i class="mdi mdi-save" style="font-weight: 600;"></i> {{trs 'save'}}
+            </button>
+        </div>
+        <div class="form-group mt-2 col-md-6">
+            <button class="btn btn-block btn-secondary" type="reset" data-dismiss="modal">
+                cancel
+            </button>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        $('#regionId').select2({
+            dropdownParent: $('#medium-modal')
+        });
+    });
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllUsers);
+    });
+</script>

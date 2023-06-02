@@ -1,0 +1,130 @@
+<form method="POST" class="d-block ajaxForm" action="/superadmin/create">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="name">
+                name
+            </label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            <small id="" class="form-text text-muted">
+                provide fullname
+            </small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="email">
+                email
+            </label>
+            <input type="email" class="form-control" id="email" name="email" required>
+            <small id="" class="form-text text-muted">
+                provide email
+            </small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="password">
+                password
+            </label>
+            <input type="password" class="form-control" id="password" name="password" required>
+            <small id="" class="form-text text-muted">
+                provide password
+            </small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="phone">
+                phone number
+            </label>
+            <input type="text" class="form-control" id="phone" name="phone" required>
+            <small id="" class="form-text text-muted">
+                provide superadmin phone number
+            </small>
+        </div>
+
+
+        <div class="form-group col-md-12">
+            <label for="businessId">superadmin of
+            </label>
+            <select name="businessId" id="businessId" class="form-control select2" data-toggle="select2">
+                <option value="">select business
+                </option>
+                {{#each businesses}}
+                <option value="{{id}}">
+                    {{name}}
+                </option>
+                {{/each}}
+            </select>
+            <small id="" class="form-text text-muted">
+                select business
+            </small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="gender">
+                gender
+            </label>
+            <select name="gender" id="gender" class="form-control select2" data-toggle="select2">
+                <option value="">
+                    select gender
+                </option>
+                <option value="Male">
+                    male
+                </option>
+                <option value="Female">
+                    female
+                </option>
+            </select>
+            <small id="" class="form-text text-muted">
+                provide superadmin gender
+            </small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="blood_group">
+                blood group
+            </label>
+            <select name="blood_group" id="blood_group" class="form-control select2" data-toggle="select2">
+                <option value="">
+                    blood group
+                </option>
+                <option value="a+">A+</option>
+                <option value="a-">A-</option>
+                <option value="b+">B+</option>
+                <option value="b-">B-</option>
+                <option value="ab+">AB+</option>
+                <option value="ab-">AB-</option>
+                <option value="o+">O+</option>
+                <option value="o-">O-</option>
+            </select>
+            <small id="" class="form-text text-muted">
+                provide superadmin blood group
+            </small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="phone">
+                address
+            </label>
+            <textarea class="form-control" id="address" name="address" rows="5" required></textarea>
+            <small id="" class="form-text text-muted">
+                provide superadmin address
+            </small>
+        </div>
+
+        <div class="form-group mt-2 col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">
+                create superadmin
+            </button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+        initSelect2(['#businessId', '#gender', '#blood_group']);
+    });
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllAdmins);
+    });
+</script>

@@ -1,0 +1,171 @@
+<!--title-->
+<div class="row d-print-none">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="page-title">
+          <i class="mdi mdi-calendar-today title_icon"></i> Daily attendance
+          <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle"
+            onclick="rightModal('/attendances/take_attendance', 'take attendance')"> <i class="mdi mdi-plus"></i>take
+            attendance</button>
+        </h4>
+      </div> <!-- end card body-->
+    </div> <!-- end card -->
+  </div><!-- end col-->
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="row mt-3 d-print-none">
+        <div class="col-md-1 mb-1"></div>
+        <div class="col-md-2 mb-1">
+          <select name="month" id="month" class="form-control select2" data-toggle="select2" required>
+            <option value="">
+              select month
+            </option>
+            <option value="01">
+              {{!-- {{#ifEquals}}{{/ifEquals}} --}}
+              january
+            </option>
+            <option value="02">
+              february
+            </option>
+            <option value="03">
+              march
+            </option>
+            <option value="04">
+              april
+            </option>
+            <option value="05">
+              may
+            </option>
+            <option value="06">
+              june
+            </option>
+            <option value="07">
+              july
+            </option>
+            <option value="08">
+              august
+            </option>
+            <option value="09">
+              september
+            </option>
+            <option value="10">
+              october
+            </option>
+            <option value="11">
+              november
+            </option>
+            <option value="12">
+              december
+            </option>
+          </select>
+        </div>
+        <div class="col-md-2 mb-1">
+          <select name="year" id="year" class="form-control select2" data-toggle="select2" required>
+            <option value="">
+              select year
+            </option>
+            {{#yearFrom 1991}}
+
+            {{/yearFrom}}
+
+          </select>
+        </div>
+        <div class="col-md-2 mb-1">
+          <select name="class" id="classId" class="form-control select2" data-toggle="select2"
+            onchange="classWiseSection(this.value)" required>
+            <option value="">
+              select class
+            </option>
+            {{#each classes}}
+            <option value="{{id}}">
+              {{name}}
+            </option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="col-md-2 mb-1">
+          <select name="section" id="sectionId" class="form-control select2" data-toggle="select2" required>
+            <option value="">
+              select section
+            </option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-block btn-secondary" onclick="filter_attendance()">
+            filter
+          </button>
+        </div>
+      </div>
+      <div class="card-body attendance_content">
+        <div class="empty_box">
+          <img class="mb-3" width="150px" src="/public/assets/backend/images/empty_box.png" />
+          <br>
+          <span class="">
+            no data found
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('document').ready(function () {
+    initSelect2(['#month', '#year', '#classId', '#sectionId']);
+    loadYears();
+  });
+
+  function classWiseSection(classId) {
+    $.ajax({
+      url: "/sections/list/class/" + classId,
+      success: function (response) {
+        $('#sectionId').html(response);
+      }
+    });
+  }
+
+  function filter_attendance() {
+    var month = $('#month').val();
+    var year = $('#year').val();
+    var classId = $('#classId').val();
+    var sectionId = $('#sectionId').val();
+    if (classId != "" && sectionId != "" && month != "" && year != "") {
+      getDailtyAttendance();
+    } else {
+      toastr.error('please select values in all fields!');
+    }
+  }
+
+  var getDailtyAttendance = function () {
+    var month = $('#month').val();
+    var year = $('#year').val();
+    var classId = $('#classId').val();
+    var sectionId = $('#sectionId').val();
+    if (classId != "" && sectionId != "" && month != "" && year != "") {
+      $.ajax({
+        type: 'POST',
+        url: '/attendances/filter',
+        data: { month: month, year: year, classId: classId, sectionId: sectionId },
+        success: function (response) {
+          $('.attendance_content').html(response);
+          initDataTable('basic-datatable');
+        }
+      });
+    }
+  }
+  function loadYears() {
+    let start = 1990;
+    let end = new Date().getFullYear();
+    for (let i = start; i <= end; i++) {
+      if (i == end) {
+        $('#year').append(`<option value="${i}" selected>${i}</option>`);
+      } else {
+        $('#year').append(`<option value="${i}">${i}</option>`);
+      }
+    }
+  }
+</script>

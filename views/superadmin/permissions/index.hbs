@@ -1,0 +1,108 @@
+<!--title-->
+<div class="row ">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="page-title">
+                    <i class="mdi mdi-account-multiple-check title_icon"></i> assign permissions for teachers
+                </h4>
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="row mt-3">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <select name="class" id="classId" class="form-control select2" data-toggle="select2"
+                        onchange="classWiseSection(this.value)" required>
+                        <option value="">select a class</option>
+                        {{#each classes}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="section" id="sectionId" class="form-control select2" data-toggle="select2" required>
+                        <option value="">select a section</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-block btn-secondary" onclick="filter()">filter</button>
+                </div>
+            </div>
+            <div class="card-body permission_content">
+                <div class="empty_box">
+                    <img class="mb-3" width="150px" src="/public/assets/backend/images/empty_box.png" />
+                    <br>
+                    <span class="">no data found</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modyfy section -->
+<script>
+    $('document').ready(function () {
+
+    });
+
+    function classWiseSection(classId) {
+        $.ajax({
+            url: "/sections/list/class/" + classId,
+            success: function (response) {
+                $('#sectionId').html(response);
+            }
+        });
+    }
+
+    function filter() {
+        var classId = $('#classId').val();
+        var sectionId = $('#sectionId').val();
+        if (classId != "" && sectionId != "") {
+            $.ajax({
+                url: `/permissions/filter/${classId}/${sectionId}`,
+                success: function (response) {
+                    $('.permission_content').html(response);
+                }
+            });
+        } else {
+            toastr.error('select a class and section to continue!');
+        }
+    }
+</script>
+
+<!-- permission insert and update -->
+<script>
+    function togglePermission(checkboxId, column_name, teacherId) {
+
+        var value = $(checkboxId).val();
+        console.log('values::::', $(checkboxId))
+        if (value == 1) {
+            value = 0;
+        } else {
+            value = 1;
+        }
+        var classId = $('#classId').val();
+        var sectionId = $('#sectionId').val();
+
+        $.ajax({
+            type: 'POST',
+            url: '/permissions/modify_permission',
+            data: { classId: classId.toString(), sectionId: sectionId.toString(), teacherId: teacherId.toString(), column_name: column_name.toString(), value: value.toString() },
+            success: function (response) {
+                filter();
+                if (response.status) {
+                    toastr.success(response.notification);
+                } else {
+                    toastr.error(response.notification);
+                }
+            }
+        });
+
+    }
+</script>

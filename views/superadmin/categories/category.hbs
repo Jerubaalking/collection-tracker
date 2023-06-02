@@ -1,0 +1,53 @@
+<script src="{{cdn}}/js/select2.min.js"></script>
+<form method="POST" class="d-block ajaxForm" action="{{action}}" enctype="application/x-www-form-urlencoded">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input type="hidden" name="handler" value="{{handler}}">
+            <label for="name">
+                {{trs 'name'}}
+            </label>
+            <input type="text" placeholder="{{trs 'name'}}" value="{{category.name}}" class="form-control" id="name"
+                name="name" required>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide category name'}}
+            </small>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="description">
+                {{trs 'description'}}
+            </label>
+            <textarea type="text" placeholder="{{trs 'description'}}" class="form-control" id="description"
+                name="description" required>{{category.description}}</textarea>
+            <small id="" class="form-text text-muted">
+                {{trs 'provide category description'}}
+            </small>
+        </div>
+        <div class="col-md-12 row">
+            <div class="form-group mt-2 col-md-6">
+                <button class="btn btn-block btn-info" type="submit">
+                    {{#if category}}
+                    {{trs 'update'}} {{trs 'category'}}
+                    {{else}}
+                    {{trs 'create'}} {{trs 'category'}}
+                    {{/if}}
+                </button>
+            </div>
+            <div class="form-group mt-2 col-md-6">
+                <button class="btn btn-block btn-secondary" type="reset" data-dismiss="modal">
+                    cancel
+                </button>
+            </div>
+        </div>
+
+    </div>
+</form>
+<script>
+    $('#repeat_type').select2({
+        dropdownParent: $('#large-modal')
+    });
+    $(".ajaxForm").validate({}); // Jquery form validation initialization
+    $(".ajaxForm").submit(function (e) {
+        var form = $(this);
+        ajaxSubmit(e, form, 'POST', showAllCategories);
+    });
+</script>

@@ -1,0 +1,48 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr style="background-color: #313a46; color: #ababab;">
+            <th>teacher</th>
+            <th>marks</th>
+            <th>assignment</th>
+            <th>attendance</th>
+            <th>online exams</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each permissions}}
+        <tr>
+            <td>{{user.name}}
+            </td>
+            <td>
+                <input type="checkbox" value="{{permissions.marks}}" id="marks{{id}}" data-switch="success"
+                    onchange="togglePermission(marks{{id}}, 'marks', '{{id}}');" {{#ifEquals 1
+                    permissions.marks}}checked{{/ifEquals}}>
+                <label for="marks{{id}}" data-on-label="Yes" data-off-label="No"></label>
+            </td>
+            <td>
+                <input type="checkbox" value="{{permissions.assignment}}" id="assignment{{id}}" data-switch="success"
+                    onchange="togglePermission(assignment{{id}}, 'assignment', '{{id}}');" {{#ifEquals '1'
+                    permissions.assignment}}checked{{/ifEquals}}>
+                <label for="assignment{{id}}" data-on-label="Yes" data-off-label="No"></label>
+            </td>
+            <td>
+                <input type="checkbox" value="{{permissions.attendance}}" id="attendance{{id}}" data-switch="success"
+                    onchange="togglePermission(attendance{{id}}, 'attendance', '{{id}}');" {{#ifEquals '1'
+                    permissions.attendance}}checked{{/ifEquals}}>
+                <label for="attendance{{id}}" data-on-label="Yes" data-off-label="No"></label>
+            </td>
+            <td>
+                <input type="checkbox" value="{{permissions.online_exams}}" id="online_exams{{id}}"
+                    data-switch="success" onchange="togglePermission(online_exams{{id}}, 'online_exams', '{{id}}');"
+                    {{#ifEquals '1' permissions.online_exams}}checked{{/ifEquals}}>
+                <label for="online_exams{{id}}" data-on-label="Yes" data-off-label="No"></label>
+            </td>
+
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    initDataTable('basic-datatable');
+</script>
