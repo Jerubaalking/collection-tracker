@@ -4,10 +4,10 @@
         <div class="col-md-12 col-sm-12 row">
             <div class="col-md-4 col-sm-6">
                 {{!-- <img {{#if ../employees}}src="{{upload.path}}" alt="" srcset="{{upload.path}}" {{else}}
-                    src="{{cdn 'public'}}/images/avatar.jpg" alt="" srcset="{{cdn 'public'}}/images/avatar.jpg" {{/if}}
+                    src="{{#cdn 'public'}}/images/avatar.jpg" alt="" srcset="{{#cdn 'public'}}/images/avatar.jpg" {{/if}}
                     style="height:120px; margin-left:-20px;"> --}}
                 <div class="rounded-circle rounded-bottom js--image-preview mr-2 mt-0" {{#if employee}}style="background-image: url({{image}}{{employee.contacts.0.users.0.upload.path}});width:135px;
-                        height:130px; background-color: #F5F5F5;" {{else}}style="background-image: url({{cdn 'public'}}/images/avatar.jpg);width:150px;
+                        height:130px; background-color: #F5F5F5;" {{else}}style="background-image: url({{#cdn 'public'}}/images/avatar.jpg);width:150px;
                         height:125px; background-color: #F5F5F5;" {{/if}}>
                 </div>
             </div>

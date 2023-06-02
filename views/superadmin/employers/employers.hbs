@@ -6,11 +6,11 @@
                 <div class="card-body row">
                     <div class="col-md-4 col-sm-4">
                         {{!-- <img {{#if ../employers}}src="{{upload.path}}" alt="" srcset="{{upload.path}}" {{else}}
-                            src="{{cdn 'public'}}/images/avatar.jpg" alt="" srcset="{{cdn 'public'}}/images/avatar.jpg" {{/if}}
+                            src="{{#cdn 'public'}}/images/avatar.jpg" alt="" srcset="{{#cdn 'public'}}/images/avatar.jpg" {{/if}}
                             style="height:120px; margin-left:-20px;"> --}}
                         <div class="rounded-circle rounded-bottom js--image-preview mr-5 mt-2" {{#if
                             ../employers}}style="background-image: url({{image}}{{upload.path}});width:120px;
-                        height:115px; background-color: #F5F5F5;" {{else}}style="background-image: url({{cdn 'public'}}/images/avatar.jpg);width:120px;
+                        height:115px; background-color: #F5F5F5;" {{else}}style="background-image: url({{#cdn 'public'}}/images/avatar.jpg);width:120px;
                         height:115px; background-color: #F5F5F5;" {{/if}}>
                         </div>
                     </div>
