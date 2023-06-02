@@ -202,7 +202,7 @@ function upload() {
                     sanitizeImage(file, callback)
                 },
                 limits: {
-                    fileSize: 1024 * 1024 * 2 // 2mb file size
+                    fileSize: 1024 * 1024 * 20 // 2mb file size
                 }
             });
         } else {
