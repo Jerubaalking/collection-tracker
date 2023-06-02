@@ -16,10 +16,7 @@ dotenv.config({ path: './config/config.env' });
 const cors = require('cors');
 
 const models = require("./database/models/module_exporter");
-app.use(cors({
-    origin: ['https://www.saincrafttechnologies.com', 'https://captain.builds.saincrafttechnologies.com', process.env.D_PUBLIC],
-    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH', 'HEAD']
-}));
+app.use(cors());
 passport.use(new LocalStrategy(
     {
         usernameField: 'email',
