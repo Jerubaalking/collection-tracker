@@ -41,7 +41,7 @@ module.exports = {
                 return res.render('superadmin/charges/category', { layout: false, action: action, charge: charge, handler: 'charges', categories: categories, chargeId: req.params.id });
             } else {
                 let action = '/categories/create';
-                return res.render('superadmin/categories/category', { layout: false, action: action, categories: categories });
+                return res.render('superadmin/categories/category', { layout: false, action: action, categories: categories, handler: "charges" });
             }
         } else {
             if (req.method == 'POST' && req.url.includes('/categories/create/' + req.params.id)) {
@@ -59,7 +59,14 @@ module.exports = {
                         data['monthly'] = true;
                     }
                     data['chargeId'] = req.params.id;
-                    await (await control.create('charge_categories', data));
+
+                    if (req.session.passport.user.employerId) {
+                        let charge_category = await models.charge_categories.build(data).save();
+                        let employer = await models.employers.findOne({ where: { id: req.session.passport.user.employerId } });
+                        await charge_category.addEmployer(await employer);
+                    } else {
+                        await (await control.create('charge_categories', data));
+                    }
                     res.status(200).json({ status: true, notification: 'successfully added category to charges!' });
                 } catch (err) {
                     console.log(err);
@@ -82,6 +89,7 @@ module.exports = {
                     // if (req.file) {
                     let data = req.body;
                     await models.charges.build(data).save();
+
                     // let category = await (await control.single('categories', { where: { id: data.categoryId } }));
                     // await charge.addCategory(await category);
                     res.json({ status: true, notification: i18n.__('successfully added') + ' ' + i18n.__('charge') + '!' });
@@ -101,9 +109,9 @@ module.exports = {
     edit: async (req, res) => {
         const control = await new Controllers(req);
         if (req.method == 'GET' && req.url.includes('/edit')) {
-            let charge = await (await control.single('charges', { where: { id: req.params.id }, include: [{ model: models.contacts }, { model: models.addresses }, { model: models.uploads }] }));
-            console.log(charge.id);
-            let action = '/charges/edit/' + charge.id
+            let charge = await (await control.single('charges', { where: { id: req.params.id }, include: [{ model: models.charge_categories, include: { model: models.employers, include: [{ model: models.addresses }, { model: models.uploads }] } },] }));
+            console.log(req.params.id);
+            let action = '/charges/edit/' + req.params.id
             res.render('superadmin/charges/charge', { layout: false, charge: charge, action: action });
         } else {
             if (req.method == 'POST') {

@@ -21,7 +21,7 @@ module.exports = {
         const control = await new Controllers(req);
         if (req.method == 'GET' && req.url == '/create') {
             let action = '/categories/create';
-            res.render('superadmin/categories/category', { layout: false, action: action });
+            res.render('superadmin/categories/category', { layout: false, action: action, handler: 'charges' });
         } else {
             if (req.method == 'POST' && req.url.includes('/create')) {
                 try {

@@ -13,7 +13,9 @@ employer_charges = sequelize.define('employer_charges', {
 });
 employers.belongsToMany(charge_categories, { through: employer_charges });
 charge_categories.belongsToMany(employers, { through: employer_charges });
-employer_charges.hasMany(charge_categories);
-employer_charges.hasMany(employers);
+employer_charges.belongsTo(charge_categories);
+charge_categories.hasMany(employer_charges);
+employer_charges.belongsTo(employers);
+employers.hasMany(employer_charges);
 
 module.exports = employer_charges;

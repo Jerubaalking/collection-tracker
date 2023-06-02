@@ -78,8 +78,9 @@ const employer_contacts = require("./employers/employer_contacts");
 const employer_addresses = require("./employers/employer_addresses");
 const charges = require("./system_properties/charges");
 const charge_categories = require("./charges/charge_categories");
-
+const employer_charges = require("./employers/employer_charges");
 module.exports = {
+    employer_charges,
     charges,
     charge_categories,
     employer_addresses,

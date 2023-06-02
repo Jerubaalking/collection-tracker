@@ -13,7 +13,7 @@
     {{> includes_top}}
     {{/ifEquals}}
 
-    <title id="mainTitle">{{viewManager.business_name}} | {{trs 'Home'}}</title>
+    <title id="mainTitle">{{trs 'RCMS'}} | {{trs 'Home'}}</title>
     <!-- all the css files -->
 </head>
 
@@ -75,7 +75,7 @@
                     success: (data) => {
                         $('.content_holder').html('');
                         $('.content_holder').html(data);
-                        $('#mainTitle').html('{{viewManager.business_name}} | ' + title);
+                        $('#mainTitle').html('RCMS |' + title);
                     }
                 })
             } else {
@@ -84,7 +84,7 @@
                     success: (data) => {
                         $('.content_holder').html('');
                         $('.content_holder').html(data);
-                        $('#mainTitle').html('{{viewManager.business_name}} | ' + name);
+                        $('#mainTitle').html('RCMS |' + name);
                     }
                 })
             }
