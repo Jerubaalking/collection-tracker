@@ -2,9 +2,9 @@ const express = require('express');
 const { Op } = require("../../database/mysql");
 const Controllers = require('../controllers/controls/control');
 const router = express.Router();
-
+const models = require('../../database/models/module_exporter');
 const { isLoggedIn } = require('../../passport/passport');
-const { menus, roles, stockOuts, items, customers, transactions } = require('../../database/models/module_exporter');
+const i18n = require('../helpers/languages/i18n.config');
 // const upload = require('../controllers/services/multerConfig');
 
 router.get('/', async (req, res) => {
@@ -63,7 +63,30 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/home', isLoggedIn, async (req, res) => {
-    res.redirect(req.session.passport.user.home);
+    console.log(req.session.passport.user);
+    const control = await new Controllers(req);
+    let language = await (await control.find('languages'));
+    let main = await (await control.find('roles', { include: { model: models.menus } }));
+    let sub_menu = [];
+    let menu_main = [];
+    for (const role of main) {
+        if (role.role == 'superadmin') {
+            for (const menu of role.menus) {
+                if (menu.parent != 0) {
+                    sub_menu.push(menu);
+                } else {
+                    menu_main.push(menu);
+                }
+            }
+        }
+    }
+
+    // console.log('business>>>>>::', menu_main, sub_menu);
+    res.render('superadmin_home', {
+        locale: i18n.getLocale(),
+        viewManager: req.session.passport.user, languages: language,
+        menus: menu_main, sub_menu: sub_menu,
+    });
 });
 router.get('/navigation', async (req, res) => {
     // let prevelage = req.query.prevelage;

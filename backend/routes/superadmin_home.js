@@ -28,66 +28,64 @@ router.get('/', isLoggedIn, async (req, res) => {
         }
     }
 
-    console.log('business>>>>>::', menu_main, sub_menu);
+    // console.log('business>>>>>::', menu_main, sub_menu);
     res.render('superadmin_home', {
-        locale: i18n.getLocale(),
-        viewManager: req.session.passport.user, languages: language,
-        menus: menu_main, sub_menu: sub_menu,
+        layout: false
     });
 });
 router.get('/home', isLoggedIn, async (req, res) => {
 
-    const control = await new Controllers(req);
-    let main = await (await control.find('menus'));
-    let sub = await (await control.find('menus', { where: { parent: { [Op.not]: [0] } } }));
-    let expenses = await (await control.find()).expenses()
-    let employees = await (await control.findBy()).employee();
-    let customer_personel = await (await control.findBy()).user({ where: {}, include: { model: roles } });
-    let customer_personels = [];
-    for (const personel of customer_personel.data) {
-        for (const role of personel.roles) {
-            if (role.role == 'customer-personel') {
-                customer_personels.push(personel);
-            }
-        }
+    // const control = await new Controllers(req);
+    // let main = await (await control.find('menus'));
+    // let sub = await (await control.find('menus', { where: { parent: { [Op.not]: [0] } } }));
+    // let expenses = await (await control.find()).expenses()
+    // let employees = await (await control.findBy()).employee();
+    // let customer_personel = await (await control.findBy()).user({ where: {}, include: { model: roles } });
+    // let customer_personels = [];
+    // for (const personel of customer_personel.data) {
+    //     for (const role of personel.roles) {
+    //         if (role.role == 'customer-personel') {
+    //             customer_personels.push(personel);
+    //         }
+    //     }
 
-    }
-    /** Invoice */
-    let invoicess = await (await control.findBy()).invoice({
-        where: {}, include: [{ model: customers }, { model: stockOuts, include: [{ model: items }, { model: stockIns }] }, { model: transactions }]
-    });
-    for (const invoice of invoicess) {
-        let total_amount = 0.0;
-        let paid_amount = 0.0;
-        let total_qty = 0.0;
-        let total_buying_amount = 0.0;
-        for (const stockOut of invoice.stock_outs) {
-            total_qty += stockOut.qty;
-            total_buying_amount += stockOut.stock_in.amount * stockOut.qty;
-            total_amount += stockOut.stock_in.selling_price * stockOut.qty;
-            stockOut['value'] = stockOut.stock_in.selling_price * stockOut.qty;
-        }
-        for (const transaction of invoice.transactions) {
-            paid_amount += transaction.amount;
-        }
-        invoice['total_amount'] = total_amount;
-        invoice['total_buying_amount'] = total_buying_amount;
-        invoice['total_qty'] = total_qty;
-        invoice['paid_amount'] = paid_amount;
-    }
-    /** end of invoices */
-    let customerss = await (await control.find()).customers();
-    let staff = await (await control.find()).staff();
-    // let expenses = JSON.parse(JSON.stringify(await (await control.find()).expenses()));
-    let payload = await (await control.getCurrentSession());
-    console.log('customer-personels', customer_personel);
-    res.render('home', {
-        layout: false,
-        viewManager: payload,
-        menus: main, sub_menu: sub, invoices: invoicess, expenses: expenses,
-        customer_personels: customer_personels.length,
-        employees: (employees) ? employees.count : 0, customers: (customerss) ? customerss.count : 0, staff: staff.count
-    });
+    // }
+    // /** Invoice */
+    // let invoicess = await (await control.findBy()).invoice({
+    //     where: {}, include: [{ model: customers }, { model: stockOuts, include: [{ model: items }, { model: stockIns }] }, { model: transactions }]
+    // });
+    // for (const invoice of invoicess) {
+    //     let total_amount = 0.0;
+    //     let paid_amount = 0.0;
+    //     let total_qty = 0.0;
+    //     let total_buying_amount = 0.0;
+    //     for (const stockOut of invoice.stock_outs) {
+    //         total_qty += stockOut.qty;
+    //         total_buying_amount += stockOut.stock_in.amount * stockOut.qty;
+    //         total_amount += stockOut.stock_in.selling_price * stockOut.qty;
+    //         stockOut['value'] = stockOut.stock_in.selling_price * stockOut.qty;
+    //     }
+    //     for (const transaction of invoice.transactions) {
+    //         paid_amount += transaction.amount;
+    //     }
+    //     invoice['total_amount'] = total_amount;
+    //     invoice['total_buying_amount'] = total_buying_amount;
+    //     invoice['total_qty'] = total_qty;
+    //     invoice['paid_amount'] = paid_amount;
+    // }
+    // /** end of invoices */
+    // let customerss = await (await control.find()).customers();
+    // let staff = await (await control.find()).staff();
+    // // let expenses = JSON.parse(JSON.stringify(await (await control.find()).expenses()));
+    // let payload = await (await control.getCurrentSession());
+    // console.log('customer-personels', customer_personel);
+    // res.render('home', {
+    //     layout: false,
+    //     viewManager: payload,
+    //     menus: main, sub_menu: sub, invoices: invoicess, expenses: expenses,
+    //     customer_personels: customer_personels.length,
+    //     employees: (employees) ? employees.count : 0, customers: (customerss) ? customerss.count : 0, staff: staff.count
+    // });
 });
 router.post('/enter', isLoggedIn, async (req, res) => {
 
