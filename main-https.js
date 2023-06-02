@@ -82,8 +82,8 @@ const _env = process.env.NODE_ENV;
 
 http.createServer(app)
     .listen(port, async () => {
-        let Q = new Query();
-        await Q.syncTable();
+        // let Q = new Query();
+        // await Q.syncTable();
         // await executiveQueries();
         console.log(`server running in ${_env} mode on port ${port}`);
     });
