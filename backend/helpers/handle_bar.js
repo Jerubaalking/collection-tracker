@@ -18,9 +18,10 @@ var register = function (Handlebars) {
                 return process.env.D_PUBLIC;
             } else {
                 if (key) {
-                    return process.env.PUBLIC + '/storekeeperapp/public';
+                    console.log('there is key', key);
+                    return process.env.PUBLIC + '/storekeeperapp/' + key;
                 } else {
-
+                    console.log('there is no key', key);
                     return process.env.PUBLIC;
                 }
             }
