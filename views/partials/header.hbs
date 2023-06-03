@@ -65,11 +65,11 @@
                     role="button" aria-haspopup="false" aria-expanded="false">
                     <span class="account-user-avatar">
                         <div class="mt-0 rounded-circle js--image-preview" {{#if viewManager.avatar}} style="background-image: url(/{{viewManager.avatar}});
-                        width:38px;height:38px; background-color: #F5F5F5; top:-2px;" {{else}}style="background-image: url(/public/images/avatar.jpg);
+                        width:38px;height:38px; background-color: #F5F5F5; top:-2px;" {{else}}style="background-image: url({{{cdn}}}/images/avatar.jpg);
                         width:38px;height:38px; background-color: #F5F5F5; top:-2px;" {{/if}}>
                         </div>
-                        {{!-- <img src="{{{cdn 'public'}}}/uploads/images/users/{{{kaimage viewManager.name}}}.jpg" alt=""
-                            class="rounded-circle"> --}}
+                        {{!-- <img src="{{{cdn 'public'}}}/uploads/images/users/{{{kaimage viewManager.name}}}.jpg"
+                            alt="" class="rounded-circle"> --}}
                     </span>
                     <span>
                         <span class="account-user-name">{{viewManager.name}}</span>
@@ -123,7 +123,8 @@
         <div class="visit_website">
             <h4 style="color: #fff; float: left;">{{trs 'Revenue Collector-RCMS'}}</h4>
             {{!-- <a href="/" target="" class="btn btn-outline-light ml-3">{{trs 'Visit Website'}}</a>
-            <img class="hidden content-placeholder" src="{{{cdn 'public'}}}/images/loader.gif" alt="" height="35px;"> --}}
+            <img class="hidden content-placeholder" src="{{{cdn 'public'}}}/images/loader.gif" alt="" height="35px;">
+            --}}
         </div>
     </div>
 </div>

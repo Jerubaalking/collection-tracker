@@ -17,7 +17,7 @@ const cors = require('cors');
 
 const models = require("./database/models/module_exporter");
 app.use(cors({
-    origin: ['https://www.saincrafttechnologies.com', 'https://collection-logger.builds.saincrafttechnologies.com', 'http://collection-logger.builds.saincrafttechnologies.com', 'https://saincrafttechnologies-static-public-2023.fra1.digitaloceanspaces.com/storekeeperapp/public', process.env.D_PUBLIC],
+    origin: ['https://www.saincrafttechnologies.com', 'https://collection-logger.builds.saincrafttechnologies.com', 'https://saincrafttechnologies-static-public-2023.fra1.digitaloceanspaces.com/storekeeperapp/public', process.env.D_PUBLIC],
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
 }));
 passport.use(new LocalStrategy(
