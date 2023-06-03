@@ -17,7 +17,7 @@ var register = function (Handlebars) {
             if (process.env.NODE_ENV === 'development') {
                 return process.env.D_PUBLIC;
             } else {
-                if (key != null) {
+                if (key == 'public') {
                     console.log('there is key', key);
                     return process.env.PUBLIC + '/storekeeperapp/' + key;
                 } else {
